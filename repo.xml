@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<meta xmlns="http://exist-db.org/xquery/repo">
+    <description>Sebastian Brandts Narrenschiff</description>
+    <author/>
+    <website/>
+    <status>alpha</status>
+    <license>GNU-LGPL</license>
+    <copyright>true</copyright>
+    <type>application</type>
+    <target>narrenapp</target>
+    <prepare>pre-install.xql</prepare>
+    <finish/>
+<deployed>2018-06-18T10:15:16.206+02:00</deployed>
+</meta>

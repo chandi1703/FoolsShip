@@ -1,0 +1,68 @@
+/*******************************TEXT CONTENT****************************/
+#pagewrap{
+   height: 98%;
+  width: 100%; 
+  margin: 60px auto;
+}
+/*synopsis boxes with fool's ship text*/
+#left, #right{
+    width: 40%;
+    background: white;
+    border: solid 0.5px;
+    height: 58%;
+    overflow: scroll;
+    position: fixed;
+}
+#left2, #right2{
+    width: 40%;
+    background-color: #A17A59;
+    color: #FFFAF4;
+    border:solid 0.5px;
+    height: 18%;
+    overflow: scroll;
+    position:fixed;
+    margin-top:34%;
+    padding:1.5em;
+}
+/*margin of text itself*/
+.chapterL, .chapterR{
+    margin:7%;
+}
+h1 { 
+  font-size:220%;
+  font-weight:bold;
+  margin-bottom:1.5em;
+}
+h2{
+  font: 14px Arial, sans-serif;
+  color:#fff;
+  padding: 10px;
+  text-align: center;
+}
+
+/******************************LEM BOXES*************************/
+.lem.overlay {
+    position: absolute;
+    top: 8%;
+    left: 7%;
+    width: 80%;
+    padding:3%;
+}
+/*lem exit button*/
+.lem.overlay .popup-exit {
+    width: 100%;
+    text-align: right;
+    line-height: 90%;
+}
+.lemTitle{
+    border-bottom:1px solid #FFFAF4;
+}
+/*add text before alternatives*/
+.lemAlternative:first-of-type:before{
+    content: "Alternative Schreibweisen: \a";
+    white-space: pre;
+}
+.lemLinks:first-of-type{
+    margin-top:1em;
+    border-top:0.5px solid #FFFAF4;
+}
