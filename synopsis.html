@@ -9,20 +9,23 @@
                     <!-- form will be handled in modules/synopsis1.xql -->
                     <form action="?">                     
                         <fieldset>
-                            
+                            <!-- previous-next function. Changes url -->
+                            <div data-template="syn1:previousnext" data-template-direction="previous"/>
                             <!-- json classes are necessary for synopsis1 .js --> 
-                            <select class="json1 chosen-select" data-placeholder="Fassung wählen" name="vers1" style="width:180px">
+                            <select class="json1 chosen-select" data-placeholder="Fassung wählen" name="vers1" style="width:150px">
                                 <option value=""/>
                                 <option value="facs">Faksimile</option>
                                 <option value="reg">Normalisierte Lesefassung</option>
                                 <option value="orig">OCR des Original</option>
                             </select>
-                            <select class="json2 chosen-select" data-placeholder="GW wählen" name="book1" style="width:180px">
+                            <select class="json2 chosen-select" data-placeholder="GW wählen" name="book1" style="width:150px">
                                 <!--<div data-template="app:selectGw"/>-->
                             </select>
-                            <select class="json3 chosen-select" data-placeholder="Kapitel wählen" name="chap1" style="width:180px" onchange="this.form.submit()">
+                            <select class="json3 chosen-select" data-placeholder="Kapitel wählen" name="chap1" style="width:150px" onchange="this.form.submit()">
                                 <!--<div data-template="app:selectCh"/>-->
                             </select>
+                            <!-- previous-next function. Changes url -->
+                            <div data-template="syn1:previousnext" data-template-direction="next"/>
                         </fieldset>
                     </form>
                 </div>
