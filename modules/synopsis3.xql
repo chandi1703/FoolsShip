@@ -16,13 +16,6 @@ declare function syn3:getLem($side as xs:string, $vers as xs:string, $book as xs
 (: Input: $side, $vers (chosen version), $book (chosen GW), $chap (chosen chapter)
 Ouput: all lems from chosen chapter :)
     
-    (: Session :)
-    if not(session:exists())
-    then session.create()
-    else ()
-        
-    (: End Session:)
-    
     for $document in $syn3:data
     let $uri := util:unescape-uri(replace(base-uri($document), '.+/(.+).xml$', '$1'), 'UTF-8')
     where concat($uri,$vers) eq $book
