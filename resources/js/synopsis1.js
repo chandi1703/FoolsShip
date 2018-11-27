@@ -18,7 +18,7 @@ Ouput: generated second menu with class json2 */
             var $dropdown = $(this);
             
             //takes json-data 
-            $.getJSON("resources/json/output.json", function (data) {
+            $.getJSON("resources/json/output2.json", function (data) {
                 var key = $dropdown.val();
                 var vals =[];
                 
@@ -62,7 +62,7 @@ Ouput: generated third menu with class json3 */
         
         var $dropdown = $(this);
         
-        $.getJSON("resources/json/output.json", function (data) {
+        $.getJSON("resources/json/output2.json", function (data) {
             
             var key = $dropdown.val();
             var vals =[];
@@ -92,7 +92,9 @@ Ouput: generated third menu with class json3 */
             $jsonthree.empty();
             $jsonthree.append("<option value=''></option>")
             $.each(vals, function (index, value) {
-                $jsonthree.append("<option value=" + value + ">Kapitel " + value.replace(/GW[0-9]+([A-Z][0-9]+).+/g, "$1") + "</option>");
+            
+                /* remove meta chapter numbers for permalinks */
+                $jsonthree.append("<option value=" + value.replace(/(GW[0-9]+)[A-Z][0-9]+([a-z]+[0-9]+)/g, "$1$2") + ">Kapitel " + value.replace(/GW[0-9]+([A-Z][0-9]+).+/g, "$1") + "</option>");
             });
             
             $jsonthree.trigger("chosen:updated");
@@ -111,7 +113,7 @@ Ouput: generated second menu with class json5 */
             var $dropdown = $(this);
             
             //takes json-data 
-            $.getJSON("resources/json/output.json", function (data) {
+            $.getJSON("resources/json/output2.json", function (data) {
                 var key = $dropdown.val();
                 var vals =[];
                 
@@ -155,7 +157,7 @@ Ouput: generated third menu with class json6 */
         
         var $dropdown = $(this);
         
-        $.getJSON("resources/json/output.json", function (data) {
+        $.getJSON("resources/json/output2.json", function (data) {
             
             var key = $dropdown.val();
             var vals =[];
@@ -185,7 +187,7 @@ Ouput: generated third menu with class json6 */
             $jsonsix.empty();
             $jsonsix.append("<option value=''></option>")
             $.each(vals, function (index, value) {
-                $jsonsix.append("<option value=" + value + ">Kapitel " + value.replace(/GW[0-9]+([A-Z][0-9]+).+/g, "$1") + "</option>");
+                $jsonsix.append("<option value=" + value.replace(/(GW[0-9]+)[A-Z][0-9]+([a-z]+[0-9]+)/g, "$1$2") + ">Kapitel " + value.replace(/GW[0-9]+([A-Z][0-9]+).+/g, "$1") + "</option>");
             });
             
             $jsonsix.trigger("chosen:updated");
