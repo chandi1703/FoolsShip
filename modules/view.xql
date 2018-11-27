@@ -17,6 +17,7 @@ import module namespace dch="http://oc.narragonien-digital.de/dch" at "displayCh
 import module namespace syn1="http://oc.narragonien-digital.de/syn1" at "synopsis1.xql";
 import module namespace syn2="http://oc.narragonien-digital.de/syn2" at "synopsis2.xql";
 import module namespace syn3="http://oc.narragonien-digital.de/syn3" at "synopsis3.xql";
+import module namespace syn4="http://oc.narragonien-digital.de/syn4" at "synopsis4.xql";
 
 declare namespace output = "http://www.w3.org/2010/xslt-xquery-serialization";
 
