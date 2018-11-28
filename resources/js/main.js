@@ -9,5 +9,6 @@ $(document).ready(function () {
     menuBook2();
     
     //synopsis2.js
-    lemPopup();    
+    lemPopup1(); 
+    lemPopup2(); 
 });
