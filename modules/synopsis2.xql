@@ -28,9 +28,10 @@ return
     
     (: compare form-parameters with XML-file IDs :)
     <div id="{concat($uri,$vers)}">
-        {for $chapter in $body//div[@type = 'chapter']
+        {for $chapter at $pos in $body//div[@type = 'chapter']
         let $id := string($chapter/@xml:id)
-        where concat($uri,$id,$vers) eq $chap
+        let $numId := concat($uri,$vers,$pos)
+        where $numId eq $chap
         return                   
         <div id="{concat($uri,$id,$vers)}" class="chapterL">{ syn2:tei2html($chapter,$side) }</div>
         }
@@ -77,7 +78,8 @@ declare function syn2:tei2html($nodes as node()*,$side as xs:string) {
                     
                 if ($node/@type = "chapterTitle") then
                     <div class="chapterTitle" style="font-weight:bold;font-size:1.5em;margin-bottom:3%">{ syn2:tei2html($node/node(),$side) }</div>
-                else if ($node/@type = "mainText") then
+               
+               else if ($node/@type = "mainText") then
                     <div class="mainText">{ syn2:tei2html($node/node(),$side) }</div>
                     
                 else if ($node/@type = "motto") then
@@ -111,7 +113,7 @@ declare function syn2:tei2html($nodes as node()*,$side as xs:string) {
             case element (figure) return
                 <div class="row">
                     <div class="col-sm-10 col-sm-push-2">
-                        <img src="resources/img/{ $node/@facs }" style="height:400px;margin-bottom:4%"/>
+                        <img src="resources/img/{ $node/@facs }" style="height:250px;margin-bottom:4%"/>
                     </div>
                 </div>
                 
@@ -127,7 +129,7 @@ declare function syn2:tei2html($nodes as node()*,$side as xs:string) {
                 let $chapter := $node/ancestor::div/@xml:id
                 let $uri := util:unescape-uri(replace(base-uri($node), '.+/(.+).xml$', '$1'), 'UTF-8')
                 return     
-                <button><a  class="lem" data-key="{ concat($uri,$chapter,replace($node/@target,'.+.xml#(.+)$','$1')) }">{ $node/node() }</a></button>
+                <button><a  class="lem{$side}" data-key="{ concat($uri,$chapter,replace($node/@target,'.+.xml#(.+)$','$1')) }">{ $node/node() }</a></button>
                 
             case element() return
                 syn2:tei2html($node/node(),$side)

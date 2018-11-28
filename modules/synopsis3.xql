@@ -15,7 +15,7 @@ declare function syn3:getLem($side as xs:string, $vers as xs:string, $book as xs
 (: Gets lem data according to data the user has chosen. See also syn3:viewLem() :)
 (: Input: $side, $vers (chosen version), $book (chosen GW), $chap (chosen chapter)
 Ouput: all lems from chosen chapter :)
-    
+
     for $document in $syn3:data
     let $uri := util:unescape-uri(replace(base-uri($document), '.+/(.+).xml$', '$1'), 'UTF-8')
     where concat($uri,$vers) eq $book
@@ -24,9 +24,11 @@ Ouput: all lems from chosen chapter :)
     for $body in $document//body
         
     (: search for chapter which equals parameters chosen from user :)
-    for $chapter in $body//div[@type = 'chapter']
+    (: Set counter at pos :)
+    for $chapter at $pos in $body//div[@type = 'chapter']
     let $id := string($chapter/@xml:id)
-    where concat($uri,$id,$vers) eq $chap  
+    let $numId := concat($uri,$vers,$pos)
+    where $numId eq $chap  
     
     for $ref in $chapter//ref
     
@@ -41,7 +43,7 @@ Ouput: all lems from chosen chapter :)
     (for $person in $document//person[@xml:id = $smId]
         return
         
-            <div class="lem overlay invisible" id="{ $lemId }">  
+            <div class="lem{$side} overlay invisible" id="{ $lemId }">  
                 <span class="popup-exit">
                       <i class="fas fa-times"></i>
                 </span>
@@ -53,7 +55,7 @@ Ouput: all lems from chosen chapter :)
     for $place in $document//place[@xml:id = $smId]
         return 
         
-            <div class="lem overlay invisible" id="{ $lemId }">  
+            <div class="lem{$side} overlay invisible" id="{ $lemId }">  
                 <span class="popup-exit">
                       <i class="fas fa-times"></i>
                 </span>
@@ -65,7 +67,7 @@ Ouput: all lems from chosen chapter :)
    for $item in $document//item[@xml:id = $smId]
         return
             
-            <div class="lem overlay invisible" id="{ $lemId }">  
+            <div class="lem{$side} overlay invisible" id="{ $lemId }">  
                 <span class="popup-exit">
                       <i class="fas fa-times"></i>
                 </span>
