@@ -1,70 +1,74 @@
 /*******************************TEXT CONTENT****************************/
-#pagewrap{
-   height: 98%;
-  width: 100%; 
-  margin: 60px auto;
+.row.content {
+    margin-top: 2vh;
 }
-/*synopsis boxes with fool's ship text*/
-#left, #right{
-    width: 40%;
+.textbox {
     background: white;
     border: solid 0.5px;
-    height: 58%;
-    overflow: scroll;
-    position: fixed;
+    height: 60vh;
+    padding: 1%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-#left2, #right2{
-    width: 40%;
-    background-color: #3949ab;
-    color: #FFFAF4;
-    border:solid 0.5px;
-    height: 18%;
-    overflow: scroll;
-    position:fixed;
-    margin-top:34%;
-    padding:1.5em;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+.col-text{
+    overflow:scroll;
+    height: 59vh;
 }
-/*margin of text itself*/
-.chapterL, .chapterR{
-    margin:7%;
+.col-md-1.col-centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
 }
-h1 { 
-  font-size:220%;
-  font-weight:bold;
-  margin-bottom:1.5em;
+.chapterL,
+.chapterR {
+    margin: 7%;
 }
-h2{
-  font: 14px Arial, sans-serif;
-  color:#fff;
-  padding: 10px;
-  text-align: center;
+h1 {
+    font-size: 220%;
+    font-weight: bold;
+    margin-bottom: 1.5em;
+}
+h2 {
+    font: 14px Arial, sans-serif;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
 }
 
 /******************************LEM BOXES*************************/
-.lem.overlay {
-    position: absolute;
+.col-md-6.lemmabox{
+    height:20vh;
+    overflow:scroll;
+    background:white;
+    width:48%;
+    margin-left:1%;
+    margin-right:1%;
+    border: solid 0.5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.leml.overlay, .lemr.overlay {
+    position:absolute;
     top: 8%;
+    height:auto;
     left: 7%;
     width: 80%;
-    padding:3%;
+    padding: 3%;
 }
 /*lem exit button*/
-.lem.overlay .popup-exit {
+.leml.overlay .popup-exit, .lemr.overlay .popup-exit {
     width: 100%;
     text-align: right;
     line-height: 90%;
 }
-.lemTitle{
-    border-bottom:1px solid #FFFAF4;
+.lemTitle {
+    border-bottom: 1px solid #FFFAF4;
 }
 /*add text before alternatives*/
-.lemAlternative:first-of-type:before{
+.lemAlternative:first-of-type:before {
     content: "Alternative Schreibweisen: \a";
     white-space: pre;
 }
-.lemLinks:first-of-type{
-    margin-top:1em;
-    border-top:0.5px solid #FFFAF4;
+.lemLinks:first-of-type {
+    margin-top: 1em;
+    border-top: 0.5px solid #FFFAF4;
 }
