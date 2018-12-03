@@ -4,13 +4,16 @@ xquery version "3.1";
 module namespace syn1 = "http://oc.narragonien-digital.de/syn1";
 declare default element namespace "http://www.tei-c.org/ns/1.0";
 
+(: Modules needed for turning pages :)
 import module namespace syn4 = "http://oc.narragonien-digital.de/syn4" at "synopsis4.xql";
+import module namespace syn5 = "http://oc.narragonien-digital.de/syn5" at "synopsis5.xql";
+
 import module namespace templates = "http://exist-db.org/xquery/templates";
 import module namespace config = "http://exist-db.org/apps/narrenapp/config" at "config.xqm";
 import module namespace functx = "http://www.functx.com";
 
 declare function syn1:createForm($node as node(), $model as map(*)) {
-    (: Creates a second form. Takes parameters the user has chosen from the first form and keeps them hidden 
+(: Creates a second form. Takes parameters the user has chosen from the first form and keeps them hidden 
 in the second form.
 
 Input: html-form from synopsis-page
@@ -30,52 +33,63 @@ Output: second form with hidden parameters the user has chosen from first form :
                 <!-- json4 class is necessary for TODO .js-file -->
                 <!-- chosen-select is class for chosen jquery plugin -->
                 <div
-                    class="col-md-4">
-                    <select
-                        class="json4 chosen-select"
-                        data-placeholder="Fassung wählen"
-                        name="vers2"
-                        style="width:100%">
-                        <option
-                            value=""/>
-                        <option
-                            value="facs">Faksimile</option>
-                        <option
-                            value="reg">Normalisierte Lesefassung</option>
-                        <option
-                            value="orig">OCR des Original</option>
-                        <input
-                            type="hidden"
-                            name="vers1"
-                            value="{$vers}"/>
-                    </select>
+                    class="col-md-11">
+                    <div
+                        class="row">
+                        <div
+                            class="col-md-4">
+                            <select
+                                class="json4 chosen-select"
+                                data-placeholder="Fassung wählen"
+                                name="vers2"
+                                style="width:100%">
+                                <option
+                                    value=""/>
+                                <option
+                                    value="facs">Faksimile</option>
+                                <option
+                                    value="reg">Normalisierte Lesefassung</option>
+                                <option
+                                    value="orig">OCR des Original</option>
+                                <input
+                                    type="hidden"
+                                    name="vers1"
+                                    value="{$vers}"/>
+                            </select>
+                        </div>
+                        <div
+                            class="col-md-4">
+                            <select
+                                class="json5 chosen-select"
+                                data-placeholder="GW wählen"
+                                name="book2"
+                                style="width:100%">
+                                <input
+                                    type="hidden"
+                                    name="book1"
+                                    value="{$book}"/>
+                            </select>
+                        </div>
+                        <div
+                            class="col-md-4">
+                            <select
+                                class="json6 chosen-select"
+                                data-placeholder="Kapitel wählen"
+                                name="chap2"
+                                onchange="this.form.submit()"
+                                style="width:100%">
+                                <input
+                                    type="hidden"
+                                    name="chap1"
+                                    value="{$chap}"/>
+                            </select>
+                        </div>
+                    </div>
                 </div>
+                <!-- imports function for turning pages in both chosen narrenschiff simultaneously -->
                 <div
-                    class="col-md-4">
-                    <select
-                        class="json5 chosen-select"
-                        data-placeholder="GW wählen"
-                        name="book2"
-                        style="width:100%">
-                        <input
-                            type="hidden"
-                            name="book1"
-                            value="{$book}"/>
-                    </select>
-                </div>
-                <div
-                    class="col-md-4">
-                    <select
-                        class="json6 chosen-select"
-                        data-placeholder="Kapitel wählen"
-                        name="chap2"
-                        onchange="this.form.submit()"
-                        style="width:100%">
-                        <input
-                            type="hidden"
-                            name="chap1"
-                            value="{$chap}"/>
-                    </select>
+                    class="col-md-1">
+                    {syn5:create-link-tall($node, $model, "next", "r")}
                 </div>
             </div>
         </form>

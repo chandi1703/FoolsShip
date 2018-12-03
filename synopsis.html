@@ -1,99 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- This page shows a two-window synopsis, where the user can choose between different fool's ships --><!-- Connected to: main.css, synopsis.css, synopsis1.xql, synopsis2.xql, synopsis3.xql, synopsis4.xql, main.js, synopsis1.js, synopsis2.js, synopsis.json -->
 <div xmlns="http://www.w3.org/1999/xhtml" data-template="templates:surround" data-template-with="templates/page.html" data-template-at="content">
-    <div class="container">
-        <!-- Enthält die Auswahlmenüs -->
-        <div class="row content">
-            <!-- Enthält das linke Auswahlmenü -->
-            <div class="col-md-6">
-                <form action="?">
-                    <!-- previous-next function. Changes url -->
-                    <!-- <div data-template="syn4:create-link" data-template-direction="previous" data-template-side="l"/> -->
-                    <!-- json classes are necessary for synopsis1 .js -->
-                    <!-- Spalte für jedes Menü -->
-                    <div class="row">
-                        <div class="col-md-4">
-                            <select class="json1 chosen-select" data-placeholder="Fassung wählen" name="vers1" style="width:100%">
-                                <option value=""/>
-                                <option value="facs">Faksimile</option>
-                                <option value="reg">Normalisierte Lesefassung</option>
-                                <option value="orig">OCR des Original</option>
-                            </select>
-                        </div>
-                        <div class="col-md-4">
-                            <select class="json2 chosen-select" data-placeholder="GW wählen" name="book1" style="width:100%">
-                                <!--<div data-template="app:selectGw"/>-->
-                            </select>
-                        </div>
-                        <div class="col-md-4">
-                            <select class="json3 chosen-select" data-placeholder="Kapitel wählen" name="chap1" style="width:100%" onchange="this.form.submit()">
-                                <!--<div data-template="app:selectCh"/>-->
-                            </select>
+
+    <!-- Enthält die Auswahlmenüs -->
+    <div class="row content">
+        <!-- Enthält das linke Auswahlmenü -->
+        <div class="col-md-6">
+            <form action="?">
+                <!-- previous-next function. Changes url -->
+                <!-- json classes are necessary for synopsis1 .js -->
+                <!-- Spalte für jedes Menü -->
+                <div class="row">
+                    <div class="col-md-1">
+                        <div data-template="syn5:create-link-tall" data-template-direction="previous" data-template-side="l"/>
+                    </div>
+                    <div class="col-md-11">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <select class="json1 chosen-select" data-placeholder="Fassung wählen" name="vers1" style="width:100%">
+                                    <option value=""/>
+                                    <option value="facs">Faksimile</option>
+                                    <option value="reg">Normalisierte Lesefassung</option>
+                                    <option value="orig">OCR des Original</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <select class="json2 chosen-select" data-placeholder="GW wählen" name="book1" style="width:100%">
+                                    <!--<div data-template="app:selectGw"/>-->
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <select class="json3 chosen-select" data-placeholder="Kapitel wählen" name="chap1" style="width:100%" onchange="this.form.submit()">
+                                    <!--<div data-template="app:selectCh"/>-->
+                                </select>
+                            </div>
                         </div>
                     </div>
-                </form>
-            </div>
-            <!-- Enthält das zweite Auswahlmenü -->
-            <div class="col-md-6">
-                <div data-template="syn1:createForm"/>
-            </div>
+
+                </div>
+            </form>
         </div>
+        <!-- Enthält das zweite Auswahlmenü -->
+        <div class="col-md-6">
+            <div data-template="syn1:createForm"/>
+        </div>
+    </div>
 
-        <!-- Enthält die Textinhalte -->
-        <div class="row content">
+    <!-- Enthält die Textinhalte -->
+    <div class="row content">
 
-            <!-- Enthält linkes Fenster -->
-            <div class="col-md-6">
-                <!-- Pfeile und Text in unterschiedlichen Spalten -->
-                <div class="textbox">
-                    <div class="row">
-                        <!-- Pfeil nach links -->
-                        <div class="col-md-1 col-centered">
-                            <div data-template="syn4:create-link" data-template-direction="previous" data-template-side="l"/>
-                        </div>
-                        <!-- Text -->
-                        <div class="col-md-10 col-text">
-                            <div data-template="syn2:viewFoolsShip" data-template-side="l"/>
-                        </div>
-                        <!-- Pfeil nach rechts -->
-                        <div class="col-md-1 col-centered">
-                            <div data-template="syn4:create-link" data-template-direction="next" data-template-side="l"/>
-                        </div>
+        <!-- Enthält linkes Fenster -->
+        <div class="col-md-6">
+            <!-- Pfeile und Text in unterschiedlichen Spalten -->
+            <div class="textbox">
+                <div class="row">
+                    <!-- Pfeil nach links -->
+                    <div class="col-md-1 col-centered">
+                        <div data-template="syn4:create-link" data-template-direction="previous" data-template-side="l"/>
+                    </div>
+                    <!-- Text -->
+                    <div class="col-md-10 col-text">
+                        <div data-template="syn2:viewFoolsShip" data-template-side="l"/>
+                    </div>
+                    <!-- Pfeil nach rechts -->
+                    <div class="col-md-1 col-centered">
+                        <div data-template="syn4:create-link" data-template-direction="next" data-template-side="l"/>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Enthält rechtes Fenster -->
-            <div class="col-md-6">
-                <!-- Pfeile und Text in unterschiedlichen Spalten -->
-                <div class="textbox">
-                    <div class="row">
-                        <div class="col-md-1 col-centered">
-                            <div data-template="syn4:create-link" data-template-direction="previous" data-template-side="r"/>
-                        </div>
-                        <!-- Text -->
-                        <div class="col-md-10 col-text">
-                            <div data-template="syn2:viewFoolsShip" data-template-side="r"/>
-                        </div>
-                        <!-- Pfeil nach rechts -->
-                        <div class="col-md-1 col-centered">
-                            <div data-template="syn4:create-link" data-template-direction="next" data-template-side="r"/>
-                        </div>
+        <!-- Enthält rechtes Fenster -->
+        <div class="col-md-6">
+            <!-- Pfeile und Text in unterschiedlichen Spalten -->
+            <div class="textbox">
+                <div class="row">
+                    <div class="col-md-1 col-centered">
+                        <div data-template="syn4:create-link" data-template-direction="previous" data-template-side="r"/>
+                    </div>
+                    <!-- Text -->
+                    <div class="col-md-10 col-text">
+                        <div data-template="syn2:viewFoolsShip" data-template-side="r"/>
+                    </div>
+                    <!-- Pfeil nach rechts -->
+                    <div class="col-md-1 col-centered">
+                        <div data-template="syn4:create-link" data-template-direction="next" data-template-side="r"/>
                     </div>
                 </div>
             </div>
-
         </div>
 
-        <!-- Lemmata-Boxen ab hier -->
-        <div class="row content">
-            <div class="col-md-6 lemmabox">
-                    <div data-template="syn3:viewLem" data-template-side="l"/>
-            </div>
-            <div class="col-md-6 lemmabox">
-                    <div data-template="syn3:viewLem" data-template-side="r"/>
-            </div>
-        </div>
+    </div>
 
+    <!-- Lemmata-Boxen ab hier -->
+    <div class="row content">
+        <div class="col-md-6 lemmabox">
+            <div data-template="syn3:viewLem" data-template-side="l"/>
+        </div>
+        <div class="col-md-6 lemmabox">
+            <div data-template="syn3:viewLem" data-template-side="r"/>
+        </div>
     </div>
 </div>
