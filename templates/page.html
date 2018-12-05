@@ -27,6 +27,7 @@
         <!--<script type="text/javascript" src="resources/js/selectMenu.js"/> -->
         <script type="text/javascript" src="resources/js/synopsis1.js"/>
         <script type="text/javascript" src="resources/js/synopsis2.js"/>
+        <script type="text/javascript" src="resources/js/synopsis3.js"/>
         <script type="text/javascript" src="resources/js/main.js"/>
 
     </head>
@@ -80,12 +81,23 @@
                     </ul>
                 </div>
             </nav>
+        
             <div id="content" class="container-fluid"/>
         <!--</div>-->
-        <!--<footer>
-            <a class="poweredby" href="http://exist-db.org">
-                <img src="$shared/resources/images/powered-by.svg" alt="Powered by eXist-db"/>
-            </a>
-        </footer>-->
+        
+        <!-- Footer Content -->
+        <div class="navbar navbar-default navbar-fixed-bottom">
+            <ul class="nav navbar-nav" style="display: inline-block;                 float: none;">
+                <li class="nav-item">
+                    <a href="www.narragonien-digital.de">Narragonien-Digital</a>
+                </li>
+                <li>
+                    <!-- Copy current link. Javascript, see also synopsis3.js -->
+                    <button type="button" class="btn btn-default btn-sm" onclick="cite()" style="margin-top:12px;">Zitierlink kopieren</button>
+                </li>
+            </ul>
+           
+            
+        </div>
     </body>
 </html>

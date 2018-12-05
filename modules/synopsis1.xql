@@ -30,6 +30,11 @@ Output: second form with hidden parameters the user has chosen from first form :
             <!-- Enthält die einzelnen Auswahlen -->
             <div
                 class="row">
+                <!-- imports function for turning pages in both chosen narrenschiff simultaneously -->
+                <div
+                    class="col-md-1">
+                    {syn5:create-link-tall($node, $model, "next", "r")}
+                </div>
                 <!-- json4 class is necessary for TODO .js-file -->
                 <!-- chosen-select is class for chosen jquery plugin -->
                 <div
@@ -86,11 +91,7 @@ Output: second form with hidden parameters the user has chosen from first form :
                         </div>
                     </div>
                 </div>
-                <!-- imports function for turning pages in both chosen narrenschiff simultaneously -->
-                <div
-                    class="col-md-1">
-                    {syn5:create-link-tall($node, $model, "next", "r")}
-                </div>
+                
             </div>
         </form>
 };

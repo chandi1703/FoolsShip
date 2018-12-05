@@ -5,19 +5,19 @@
 .textbox {
     background: white;
     border: solid 0.5px;
-    height: 60vh;
+    height: 50vh;
     padding: 1%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .col-text{
     overflow:scroll;
-    height: 59vh;
+    height: 49vh;
 }
 .col-md-1.col-centered {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 60vh;
+    height: 50vh;
 }
 .chapterL,
 .chapterR {

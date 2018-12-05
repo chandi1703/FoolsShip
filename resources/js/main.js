@@ -10,5 +10,8 @@ $(document).ready(function () {
     
     //synopsis2.js
     lemPopup1(); 
-    lemPopup2(); 
+    lemPopup2();
+    
+    //synopsis3.js
+    cite();
 });
