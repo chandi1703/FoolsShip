@@ -85,8 +85,8 @@ declare function syn2:tei2html($nodes as node()*,$side as xs:string) {
                 else if ($node/@type = "motto") then
                     <div class="motto" style="font-size:small;margin-bottom:4%">{ syn2:tei2html($node/node(),$side) }</div>
                 
-                else if ($node/@type = "signatureMark") then
-                    (<div class="signatureMark" style="font-size:small;margin-top:4%;text-align:right">{ syn2:tei2html($node/node(),$side) }</div>,
+                else if ($node/@type = "signatureTitle") then
+                    (<div class="signatureMark">{ syn2:tei2html($node/node(),$side) }</div>,
                     <hr class="pageturn"/>)
                     
                 else syn2:tei2html($node/node(),$side)

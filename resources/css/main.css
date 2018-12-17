@@ -3,12 +3,50 @@
     font-family:junicode;
     src: url(../fonts/Junicode.ttf);
 }
-body { font: 14px ;
-  font-family:junicode;
+@font-face{
+    font-family:roboto;
+    src: url(../fonts/Roboto-Light.ttf);
+}
+body { font: 12px ;
+  font-family: roboto !important;
   background-color: #e8eaf6 !important;
  }
- 
  /* **************************NAVIGATION************************** */
+.navbar {
+  min-height: 80px !important;
+}
+
+.navbar-brand {
+  padding: 0 15px !important;
+  height: 80px !important;
+  line-height: 80px !important;
+  font-size:large !important;
+}
+
+.navbar-toggle {
+  /* (80px - button height 34px) / 2 = 23px */
+  margin-top: 23px !important;
+  padding: 9px 10px !important;
+}
+
+@media (min-width: 768px) {
+  .navbar-nav > li > a {
+    /* (80px - line-height of 27px) / 2 = 26.5px */
+    padding-top: 26.5px !important;
+    padding-bottom: 26.5px !important;
+    line-height: 27px !important;
+    font-size:medium !important;
+  }
+}
+.navbar-fixed-bottom{
+    min-height: 50px !important;
+    width: 100%;
+    text-align: center;
+}
+.navbar-fixed-bottom > li{
+    float: none;
+    display: inline-block;
+}
  .navbar-default {
     background-color: #3949ab !important;   
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -26,3 +64,46 @@ body { font: 14px ;
 .navbar-nav >  .dropdown > .dropdown-toggle, .navbar-nav >  .dropdown > .dropdown-toggle:hover, .navbar-nav >  .dropdown > .dropdown-toggle:focus{   
     background-color: #3949ab !important;
 } 
+
+/*CITE-BUTTON-BLINKING*/
+.cite-button {
+  background-color: #004A7F;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  border: none;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Arial;
+  font-size: 20px;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  -webkit-animation: glowing 1500ms infinite;
+  -moz-animation: glowing 1500ms infinite;
+  -o-animation: glowing 1500ms infinite;
+  animation: glowing 1500ms infinite;
+}
+@-webkit-keyframes glowing {
+  0% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
+  50% { background-color: #FF0000; -webkit-box-shadow: 0 0 40px #FF0000; }
+  100% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
+}
+
+@-moz-keyframes glowing {
+  0% { background-color: #B20000; -moz-box-shadow: 0 0 3px #B20000; }
+  50% { background-color: #FF0000; -moz-box-shadow: 0 0 40px #FF0000; }
+  100% { background-color: #B20000; -moz-box-shadow: 0 0 3px #B20000; }
+}
+
+@-o-keyframes glowing {
+  0% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+  50% { background-color: #FF0000; box-shadow: 0 0 40px #FF0000; }
+  100% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+}
+
+@keyframes glowing {
+  0% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+  50% { background-color: #FF0000; box-shadow: 0 0 40px #FF0000; }
+  100% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+}

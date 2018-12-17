@@ -1,8 +1,14 @@
 /*******************************TEXT CONTENT****************************/
+@font-face{
+    font-family:junicode;
+    src: url(../fonts/Junicode.ttf);
+}
 .row.content {
     margin-top: 2vh;
 }
 .textbox {
+    font: 14px !important;
+    font-family:junicode !important;
     background: white;
     border: solid 0.5px;
     height: 50vh;
@@ -10,9 +16,26 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .col-text{
-    overflow:scroll;
+    overflow-y:scroll;
     height: 49vh;
 }
+/*TEST*/
+::-webkit-scrollbar {
+    width: 10px;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+/*TEST*/
+
+
 .col-md-1.col-centered {
     display: flex;
     justify-content: center;
@@ -34,11 +57,18 @@ h2 {
     padding: 10px;
     text-align: center;
 }
+.signatureMark{
+    font-size:small;
+    margin-top:4% !important;
+    text-align:right !important;
+}
 
 /******************************LEM BOXES*************************/
 .col-md-6.lemmabox{
+    font: 14px !important;
+    font-family:junicode !important;
     height:20vh;
-    overflow:scroll;
+    overflow-y:scroll;
     background:white;
     width:48%;
     margin-left:1%;
