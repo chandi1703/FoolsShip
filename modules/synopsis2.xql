@@ -6,6 +6,7 @@ declare default element namespace "http://www.tei-c.org/ns/1.0";
 
 import module namespace templates="http://exist-db.org/xquery/templates" ;
 import module namespace config="http://exist-db.org/apps/narrenapp/config" at "config.xqm";
+import module namespace xmldb="http://exist-db.org/xquery/xmldb";
 
 (: Save data-content in variables :)
 declare variable $syn2:data := collection('/db/apps/narrenapp/data/GW');
@@ -129,7 +130,7 @@ declare function syn2:tei2html($nodes as node()*,$side as xs:string) {
                 let $chapter := $node/ancestor::div/@xml:id
                 let $uri := util:unescape-uri(replace(base-uri($node), '.+/(.+).xml$', '$1'), 'UTF-8')
                 return     
-                <button><a  class="lem{$side}" data-key="{ concat($uri,$chapter,replace($node/@target,'.+.xml#(.+)$','$1')) }">{ $node/node() }</a></button>
+                <a  class="btn btn-default btn-sm lem{$side}" data-key="{ concat($uri,$chapter,replace($node/@target,'.+.xml#(.+)$','$1')) }">{ $node/node() }</a>
                 
             case element() return
                 syn2:tei2html($node/node(),$side)

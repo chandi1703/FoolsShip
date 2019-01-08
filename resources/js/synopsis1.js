@@ -7,6 +7,7 @@ function chosenSelect(){
         $('.chosen-select').chosen();
 })};
 
+
 function menuVers1(){
 /* Changes second menu according to the choice of the version (normalisierte Lesefassung,
 OCR Version, Faksimile) */
@@ -77,6 +78,15 @@ Ouput: generated third menu with class json3 */
                 case 'GW5041facs':
                 vals = data.GW5041facs.split(",");
                 break;
+                case 'GW5042reg':
+                vals = data.GW5042reg.split(",");
+                break;
+                case 'GW5042orig':
+                vals = data.GW5042orig.split(",");
+                break;
+                case 'GW5042facs':
+                vals = data.GW5042facs.split(",");
+                break;
                 case 'GW5046reg':
                 vals = data.GW5046reg.split(",");
                 break;
@@ -85,6 +95,15 @@ Ouput: generated third menu with class json3 */
                 break;
                 case 'GW5046facs':
                 vals = data.GW5046facs.split(",");
+                break;
+                case 'GW5047reg':
+                vals = data.GW5047reg.split(",");
+                break;
+                case 'GW5047orig':
+                vals = data.GW5047orig.split(",");
+                break;
+                case 'GW5047facs':
+                vals = data.GW5047facs.split(",");
                 break;
             }
             
@@ -172,6 +191,15 @@ Ouput: generated third menu with class json6 */
                 case 'GW5041facs':
                 vals = data.GW5041facs.split(",");
                 break;
+                case 'GW5042reg':
+                vals = data.GW5042reg.split(",");
+                break;
+                case 'GW5042orig':
+                vals = data.GW5042orig.split(",");
+                break;
+                case 'GW5042facs':
+                vals = data.GW5042facs.split(",");
+                break;
                 case 'GW5046reg':
                 vals = data.GW5046reg.split(",");
                 break;
@@ -180,6 +208,15 @@ Ouput: generated third menu with class json6 */
                 break;
                 case 'GW5046facs':
                 vals = data.GW5046facs.split(",");
+                break;
+                case 'GW5047reg':
+                vals = data.GW5047reg.split(",");
+                break;
+                case 'GW5047orig':
+                vals = data.GW5047orig.split(",");
+                break;
+                case 'GW5047facs':
+                vals = data.GW5047facs.split(",");
                 break;
             }
             

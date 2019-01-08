@@ -7,8 +7,9 @@
     margin-top: 2vh;
 }
 .textbox {
-    font: 14px !important;
-    font-family:junicode !important;
+    font-size: 14px !important;
+    font-family: junicode !important;
+    line-height: 1.6 !important;
     background: white;
     border: solid 0.5px;
     height: 50vh;
@@ -19,23 +20,6 @@
     overflow-y:scroll;
     height: 49vh;
 }
-/*TEST*/
-::-webkit-scrollbar {
-    width: 10px;
-}
- 
-::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
-    border-radius: 10px;
-}
- 
-::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
-}
-/*TEST*/
-
-
 .col-md-1.col-centered {
     display: flex;
     justify-content: center;
@@ -64,6 +48,10 @@ h2 {
 }
 
 /******************************LEM BOXES*************************/
+.btn-default.leml{
+    font-size: 14px !important;
+    padding: 0 1% !important;
+}
 .col-md-6.lemmabox{
     font: 14px !important;
     font-family:junicode !important;
@@ -101,4 +89,21 @@ h2 {
 .lemLinks:first-of-type {
     margin-top: 1em;
     border-top: 0.5px solid #FFFAF4;
+}
+
+/*SCROLLBAR BECAUSE UGLY FOR FIREFOX AND CHROME*/
+::-webkit-scrollbar {
+  width: 10px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
 }
