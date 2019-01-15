@@ -3,10 +3,10 @@
 $(document).ready(function () {
     //synopsis1.js
     chosenSelect();
-    menuVers1();
-    menuVers2();
-    menuBook1();
-    menuBook2();
+    menuAusgabe1();
+    menuAusgabe2();
+    menuKapitel1();
+    menuKapitel2()
     
     //synopsis2.js
     lemPopup1(); 
