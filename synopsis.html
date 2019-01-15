@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- This page shows a two-window synopsis, where the user can choose between different fool's ships --><!-- Connected to: main.css, synopsis.css, synopsis1.xql, synopsis2.xql, synopsis3.xql, synopsis4.xql, main.js, synopsis1.js, synopsis2.js, synopsis.json -->
 <div xmlns="http://www.w3.org/1999/xhtml" data-template="templates:surround" data-template-with="templates/page.html" data-template-at="content">
-
+    
     <!-- Enthält die Auswahlmenüs -->
     <div class="row content" style="margin-left:4vw;margin-right:4vw;">
-
+        
         <!-- Enthält das linke Auswahlmenü -->
         <div class="col-md-6">
             <form action="?">
@@ -12,34 +12,35 @@
                 <!-- json classes are necessary for synopsis1 .js -->
                 <!-- Spalte für jedes Menü -->
                 <div class="row">
-
+                    
                     <div class="col-md-11">
                         <div class="row">
                             <div class="col-md-4">
-                                <select class="json1 chosen-select" data-placeholder="Fassung wählen" name="vers1" style="width:100%">
+                                <select class="ausgabe1 chosen-select" data-placeholder="Ausgabe wählen" name="book1" style="width:100%">
                                     <option value=""/>
-                                    <option value="facs">Faksimile</option>
-                                    <option value="reg">Normalisierte Lesefassung</option>
-                                    <option value="orig">OCR des Original</option>
+                                    <option value="GW5042">GW 5042</option>
+                                    <option value="GW5041">GW 5041</option>
+                                    <option value="GW5046">GW 5046</option>
+                                    <option value="GW5047">GW 5047</option>
                                 </select>
                             </div>
                             <div class="col-md-4">
-                                <select class="json2 chosen-select" data-placeholder="GW wählen" name="book1" style="width:100%">
+                                <select class="kapitel1 chosen-select" data-placeholder="Kapitel wählen" name="chap1" style="width:100%">
                                     <!--<div data-template="app:selectGw"/>-->
                                 </select>
                             </div>
                             <div class="col-md-4">
-                                <select class="json3 chosen-select" data-placeholder="Kapitel wählen" name="chap1" style="width:100%" onchange="this.form.submit()">
+                                <select class="ansicht1 chosen-select" data-placeholder="Ansicht wählen" name="vers1" style="width:100%" onchange="this.form.submit()">
                                     <!--<div data-template="app:selectCh"/>-->
                                 </select>
                             </div>
                         </div>
                     </div>
-
+                    
                     <div class="col-md-1">
                         <div data-template="syn5:create-link-tall" data-template-direction="previous" data-template-side="l"/>
                     </div>
-
+                    
                 </div>
             </form>
         </div>
@@ -48,7 +49,7 @@
             <div data-template="syn1:createForm"/>
         </div>
     </div>
-
+    
     <!-- Enthält die Textinhalte -->
     <div class="row content" style="margin-left:4vw;margin-right:4vw;">
         <!-- Enthält linkes Fenster -->
@@ -62,7 +63,7 @@
                     </div>
                     <!-- Text -->
                     <div class="col-md-10 col-text">
-                            <div data-template="syn2:viewFoolsShip" data-template-side="l"/>
+                        <div data-template="syn2:viewFoolsShip" data-template-side="l"/>
                     </div>
                     <!-- Pfeil nach rechts -->
                     <div class="col-md-1 col-centered">
@@ -71,7 +72,7 @@
                 </div>
             </div>
         </div>
-
+        
         <!-- Enthält rechtes Fenster -->
         <div class="col-md-6">
             <!-- Pfeile und Text in unterschiedlichen Spalten -->
@@ -92,7 +93,7 @@
             </div>
         </div>
     </div>
-
+    
     <!-- Lemmata-Boxen ab hier -->
     <div class="row content" style="margin-left:4vw;margin-right:4vw;">
         <div class="col-md-6 lemmabox">
