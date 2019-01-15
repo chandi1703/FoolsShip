@@ -44,31 +44,15 @@ Output: second form with hidden parameters the user has chosen from first form :
                         <div
                             class="col-md-4">
                             <select
-                                class="json4 chosen-select"
-                                data-placeholder="Fassung wählen"
-                                name="vers2"
-                                style="width:100%">
-                                <option
-                                    value=""/>
-                                <option
-                                    value="facs">Faksimile</option>
-                                <option
-                                    value="reg">Normalisierte Lesefassung</option>
-                                <option
-                                    value="orig">OCR des Original</option>
-                                <input
-                                    type="hidden"
-                                    name="vers1"
-                                    value="{$vers}"/>
-                            </select>
-                        </div>
-                        <div
-                            class="col-md-4">
-                            <select
-                                class="json5 chosen-select"
-                                data-placeholder="GW wählen"
+                                class="ausgabe2 chosen-select"
+                                data-placeholder="Ausgabe wählen"
                                 name="book2"
                                 style="width:100%">
+                                <option value=""/>
+                                    <option value="GW5042">GW 5042</option>
+                                    <option value="GW5041">GW 5041</option>
+                                    <option value="GW5046">GW 5046</option>
+                                    <option value="GW5047">GW 5047</option>
                                 <input
                                     type="hidden"
                                     name="book1"
@@ -78,15 +62,28 @@ Output: second form with hidden parameters the user has chosen from first form :
                         <div
                             class="col-md-4">
                             <select
-                                class="json6 chosen-select"
+                                class="kapitel2 chosen-select"
                                 data-placeholder="Kapitel wählen"
                                 name="chap2"
-                                onchange="this.form.submit()"
                                 style="width:100%">
                                 <input
                                     type="hidden"
                                     name="chap1"
                                     value="{$chap}"/>
+                            </select>
+                        </div>
+                        <div
+                            class="col-md-4">
+                            <select
+                                class="ansicht2 chosen-select"
+                                data-placeholder="Ansicht wählen"
+                                name="vers2"
+                                onchange="this.form.submit()"
+                                style="width:100%">
+                                <input
+                                    type="hidden"
+                                    name="vers1"
+                                    value="{$vers}"/>
                             </select>
                         </div>
                     </div>

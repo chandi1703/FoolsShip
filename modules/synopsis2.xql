@@ -20,7 +20,7 @@ Output: user's chosen chapter :)
 (: read documents from data/GW :)
 for $document in $syn2:data
 let $uri := util:unescape-uri(replace(base-uri($document), '.+/(.+).xml$', '$1'), 'UTF-8')
-where concat($uri,$vers) eq $book
+where concat($uri,replace($vers, '[0-9]+', '')) eq concat($book,replace($vers, '[0-9]+', ''))
 return
 
     (: takes body from document :)
@@ -28,13 +28,13 @@ return
     return
     
     (: compare form-parameters with XML-file IDs :)
-    <div id="{concat($uri,$vers)}">
+    <div id="{concat($uri,replace($vers, '[0-9]+', ''))}">
         {for $chapter at $pos in $body//div[@type = 'chapter']
         let $id := string($chapter/@xml:id)
-        let $numId := concat($uri,$vers,$pos)
-        where $numId eq $chap
+        let $numId := concat($uri,replace($vers, '[0-9]+', ''),$pos)
+        where $numId eq concat($book,$vers)
         return                   
-        <div id="{concat($uri,$id,$vers)}" class="chapterL">{ syn2:tei2html($chapter,$side) }</div>
+        <div id="{concat($uri,$id,replace($vers, '[0-9]+', ''))}" class="chapterL">{ syn2:tei2html($chapter,$side) }</div>
         }
    </div>
 };
@@ -52,21 +52,20 @@ Output: chapter which was chosen by the user :)
     let $book2 := request:get-parameter('book2', '')
     let $chap2 := request:get-parameter('chap2', '')
     return 
-    
     switch($side)
     case "l" return
         syn2:getFoolsShip($side, $vers1, $book1, $chap1)   
     case "r" return
         syn2:getFoolsShip($side, $vers2, $book2, $chap2)                
-    default return "Something went wrong."                           
+    default return "Something went wrong."                         
 };
 
 declare function syn2:tei2html($nodes as node()*,$side as xs:string) {
 (: transforms elements from syn2:viewFoolsShip() :)
 
     (: reads parameters from synopsis.html :)
-    let $vers1 := request:get-parameter('vers1', '')    
-    let $vers2 := request:get-parameter('vers2', '')
+    let $vers1 := replace(request:get-parameter('vers1', ''), '[0-9]+', '')    
+    let $vers2 := replace(request:get-parameter('vers2', ''), '[0-9]+', '')
     
     for $node in $nodes
     return
@@ -112,9 +111,11 @@ declare function syn2:tei2html($nodes as node()*,$side as xs:string) {
                     default return "WTF"
                     
             case element (figure) return
+                let $login := xmldb:login('/db/img/woodcut', 'guest', '')
+                return
                 <div class="row">
                     <div class="col-sm-10 col-sm-push-2">
-                        <img src="resources/img/{ $node/@facs }" style="height:250px;margin-bottom:4%"/>
+                        <img src="/exist/rest/img/woodcut/{ concat($node/@facs, '.jpg') }" style="height:400px;margin-bottom:4%"/>
                     </div>
                 </div>
                 

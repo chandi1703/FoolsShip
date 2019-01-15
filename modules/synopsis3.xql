@@ -18,7 +18,7 @@ Ouput: all lems from chosen chapter :)
 
     for $document in $syn3:data
     let $uri := util:unescape-uri(replace(base-uri($document), '.+/(.+).xml$', '$1'), 'UTF-8')
-    where concat($uri,$vers) eq $book
+    where concat($uri,replace($vers, '[0-9]+', '')) eq concat($book,replace($vers, '[0-9]+', ''))
     
     (: take body from document :)
     for $body in $document//body
@@ -27,8 +27,8 @@ Ouput: all lems from chosen chapter :)
     (: Set counter at pos :)
     for $chapter at $pos in $body//div[@type = 'chapter']
     let $id := string($chapter/@xml:id)
-    let $numId := concat($uri,$vers,$pos)
-    where $numId eq $chap  
+    let $numId := concat($uri,replace($vers, '[0-9]+', ''),$pos)
+    where $numId eq concat($book,$vers)  
     
     for $ref in $chapter//ref
     
