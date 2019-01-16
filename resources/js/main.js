@@ -6,7 +6,7 @@ $(document).ready(function () {
     menuAusgabe1();
     menuAusgabe2();
     menuKapitel1();
-    menuKapitel2()
+    menuKapitel2();
     
     //synopsis2.js
     lemPopup1(); 
