@@ -20,7 +20,7 @@ Output: user's chosen chapter :)
 (: read documents from data/GW :)
 for $document in $syn2:data
 let $uri := util:unescape-uri(replace(base-uri($document), '.+/(.+).xml$', '$1'), 'UTF-8')
-where concat($uri,replace($vers, '[0-9]+', '')) eq concat($book,replace($vers, '[0-9]+', ''))
+where concat($uri, $vers) eq concat($book, $vers)
 return
 
     (: takes body from document :)
@@ -28,13 +28,13 @@ return
     return
     
     (: compare form-parameters with XML-file IDs :)
-    <div id="{concat($uri,replace($vers, '[0-9]+', ''))}">
+    <div id="{concat($uri, $vers)}">
         {for $chapter at $pos in $body//div[@type = 'chapter']
         let $id := string($chapter/@xml:id)
-        let $numId := concat($uri,replace($vers, '[0-9]+', ''),$pos)
-        where $numId eq concat($book,$vers)
+        let $numId := concat($uri, 'n', $pos)
+        where $numId eq $chap
         return                   
-        <div id="{concat($uri,$id,replace($vers, '[0-9]+', ''))}" class="chapterL">{ syn2:tei2html($chapter,$side) }</div>
+        <div id="{concat($uri, $id, $vers)}" class="chapterL">{ syn2:tei2html($chapter,$side) }</div>
         }
    </div>
 };
@@ -64,8 +64,8 @@ declare function syn2:tei2html($nodes as node()*,$side as xs:string) {
 (: transforms elements from syn2:viewFoolsShip() :)
 
     (: reads parameters from synopsis.html :)
-    let $vers1 := replace(request:get-parameter('vers1', ''), '[0-9]+', '')    
-    let $vers2 := replace(request:get-parameter('vers2', ''), '[0-9]+', '')
+    let $vers1 := request:get-parameter('vers1', '')   
+    let $vers2 := request:get-parameter('vers2', '')
     
     for $node in $nodes
     return
