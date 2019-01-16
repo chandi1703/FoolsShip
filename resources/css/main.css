@@ -12,34 +12,9 @@ body { font: 12px ;
   background-color: #e8eaf6 !important;
  }
  /* **************************NAVIGATION************************** */
-.navbar {
-  min-height: 80px !important;
-}
 
-.navbar-brand {
-  padding: 0 15px !important;
-  height: 80px !important;
-  line-height: 80px !important;
-  font-size:large !important;
-}
-
-.navbar-toggle {
-  /* (80px - button height 34px) / 2 = 23px */
-  margin-top: 23px !important;
-  padding: 9px 10px !important;
-}
-
-@media (min-width: 768px) {
-  .navbar-nav > li > a {
-    /* (80px - line-height of 27px) / 2 = 26.5px */
-    padding-top: 26.5px !important;
-    padding-bottom: 26.5px !important;
-    line-height: 27px !important;
-    font-size:medium !important;
-  }
-}
 .navbar-fixed-bottom{
-    min-height: 50px !important;
+    /*min-height: 50px !important;*/
     width: 100%;
     text-align: center;
 }
