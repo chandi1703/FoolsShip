@@ -49,10 +49,10 @@ Output: second form with hidden parameters the user has chosen from first form :
                                 name="book2"
                                 style="width:100%">
                                 <option value=""/>
-                                    <option value="GW5042">GW 5042</option>
-                                    <option value="GW5041">GW 5041</option>
-                                    <option value="GW5046">GW 5046</option>
-                                    <option value="GW5047">GW 5047</option>
+                                    <option value="GW5041">Brandt, 'Narrenschiff' Basel 11.2.1494</option>
+                                    <option value="GW5046">Brandt, 'Narrenschiff' Basel 3.3.1495</option>
+                                    <option value="GW5047">Brandt, 'Narrenschiff' Basel 12.2.1499</option>
+                                    <option value="GW5042">Brandt, 'Narrenschiff' Nürnberger Bearb.</option>
                                 <input
                                     type="hidden"
                                     name="book1"

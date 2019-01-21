@@ -1,5 +1,14 @@
 /* Handles lemma and marginal note popups */
 
+
+function createPopover(){
+   $(document).ready(function(){
+  $('[data-toggle="popover"]').popover({
+      placement: 'auto top'
+  }); 
+});
+}
+
 function lemPopup1() {
 /* Click function, toggles between visible and unvisible lem content. Creates exit-button. */
 /* Input: 'a'-tags with class 'leml' (left window)

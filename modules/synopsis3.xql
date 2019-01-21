@@ -11,74 +11,49 @@ import module namespace config="http://exist-db.org/apps/narrenapp/config" at "c
 declare variable $syn3:data := collection('/db/apps/narrenapp/data/GW');
 declare variable $syn3:lem := collection('/db/apps/narrenapp/data/lemma');
 
-declare function syn3:getLem($side as xs:string, $vers as xs:string, $book as xs:string, $chap as xs:string){
-(: Gets lem data according to data the user has chosen. See also syn3:viewLem() :)
-(: Input: $side, $vers (chosen version), $book (chosen GW), $chap (chosen chapter)
-Ouput: all lems from chosen chapter :)
-
-    for $document in $syn3:data
-    let $uri := util:unescape-uri(replace(base-uri($document), '.+/(.+).xml$', '$1'), 'UTF-8')
-    where concat($uri, $vers) eq concat($book, $vers)
-    
-    (: take body from document :)
-    for $body in $document//body
+declare function syn3:getLem($vers as xs:string, $book as xs:string, $chap as xs:string){
         
-    (: search for chapter which equals parameters chosen from user :)
-    (: Set counter at pos :)
-    for $chapter at $pos in $body//div[@type = 'chapter']
-    let $id := string($chapter/@xml:id)
-    let $numId := concat($uri, 'n' ,$pos)
-    where $numId eq $chap  
-    
-    for $ref in $chapter//ref
-    
-    (: create lem id for output and connection to the fool's ship text :)
-    let $lemId := concat($uri,$id,replace($ref/@target, '.+#(.+)$', '$1' ))
-    
-    (: create small id for checking with lem xml-file :)
-    let $smId := replace($lemId, 'GW[0-9]+[PB][0-9]+(.+)$', '$1')
-      
-    for $document in $syn3:lem
-    return
-    (for $person in $document//person[@xml:id = $smId]
-        return
+        for $document in $syn3:data
+        let $uri := util:unescape-uri(replace(base-uri($document), '.+/(.+).xml$', '$1'), 'UTF-8')
+        where concat($uri, $vers) eq concat($book, $vers)
         
-            <div class="lem{$side} overlay invisible" id="{ $lemId }">  
-                <span class="popup-exit">
-                      <i class="fas fa-times"></i>
-                </span>
-                
-                <!-- lem2html transforms TEI-form of lems into html -->
-                <div class="lemContent">{ syn3:lem2html($person,$side) }</div>
-            </div>,
+        (: take body from document :)
+        for $body in $document//body
             
-    for $place in $document//place[@xml:id = $smId]
-        return 
+        (: search for chapter which equals parameters chosen from user :)
+        (: Set counter at pos :)
+        for $chapter at $pos in $body//div[@type = 'chapter']
+        let $numId := concat($uri, 'n' ,$pos)
+        where $numId eq $chap  
         
-            <div class="lem{$side} overlay invisible" id="{ $lemId }">  
-                <span class="popup-exit">
-                      <i class="fas fa-times"></i>
-                </span>
-                
-                <!-- lem2html transforms TEI-form of lems into html -->
-                <div class="lemContent">{ syn3:lem2html($place,$side) }</div>
-            </div>,
-            
-   for $item in $document//item[@xml:id = $smId]
-        return
-            
-            <div class="lem{$side} overlay invisible" id="{ $lemId }">  
-                <span class="popup-exit">
-                      <i class="fas fa-times"></i>
-                </span>
-                
-                <!-- lem2html transforms TEI-form of lems into html -->
-                <div class="lemContent">{ syn3:lem2html($item,$side) }</div>
+        for $ref in $chapter//ref
+        let $lemId := replace($ref/@target, '.+#(.+)$', '$1' )
+        
+        for $document in $syn3:lem
+        for $item in $document//*[self::person or self::place or self::item][@xml:id = $lemId]
+            return
+            <div class="modal fade" id="{ $item/@xml:id }" role="dialog">
+                <div class="modal-dialog modal-md">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&#215;</button>
+                            <h1 class="modal-title"><b>{ $item/*[self::persName or self::placeName or self::span][not(@type)] }</b></h1>
+                        </div>
+                        <div class="modal-body">
+                            <p>{ syn3:lem2html($item) }</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal"
+                                >Schließen</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-    )
+
 };
 
-declare function syn3:viewLem($node as node(), $model as map(*), $side as xs:string){
+
+declare function syn3:viewLem($node as node(), $model as map(*)){
 (: Compares user's chapter choice with lem-file (data/lemma) and returns all lems that are available in current chapter :)
 (: Input: $node, $side (distinguishes between left and right synopsis-window)
 Output: all lems in current chapter -> persons, places, items :)
@@ -89,17 +64,12 @@ Output: all lems in current chapter -> persons, places, items :)
     let $vers2 := request:get-parameter('vers2', '')
     let $book2 := request:get-parameter('book2', '')
     let $chap2 := request:get-parameter('chap2', '')
-    return 
-    
-    switch($side)
-    case "l" return
-        syn3:getLem($side,$vers1,$book1,$chap1)   
-    case "r" return
-        syn3:getLem($side,$vers2,$book2,$chap2)
-    default return "Something went wrong here"
+    return   
+    (syn3:getLem($vers1,$book1,$chap1),   
+    syn3:getLem($vers2,$book2,$chap2))
 };
 
-declare function syn3:lem2html($nodes as node()*, $side as xs:string){
+declare function syn3:lem2html($nodes as node()*){
 (: transforms lems from syn3:viewLem() into html :)
 (: Input: TEI/XML lem from data/lemma
 Output: HTML lem :)
@@ -114,27 +84,27 @@ Output: HTML lem :)
         (: handles element persName :)
         case element(persName) return
             if($node/@type) then
-                <div class="lemAlternative">{ syn3:lem2html($node/node(),$side) }</div>
-            else 
-                <h3 class="lemTitle">{ syn3:lem2html($node/node(),$side) }</h3>
+                <div class="lemAlternative">{ syn3:lem2html($node/node()) }</div>
+            else ()
+               (: <h3 class="lemTitle">{ syn3:lem2html($node/node(),$side) }</h3>:)
         
         (: handles element placeName :)
         case element(placeName) return
             if($node/@type) then
-                <div class="lemAlternative">{ syn3:lem2html($node/node(),$side) }</div>
-            else 
-                <h3 class="lemTitle">{ syn3:lem2html($node/node(),$side) }</h3>
+                <div class="lemAlternative">{ syn3:lem2html($node/node()) }</div>
+            else ()
+                (:<h3 class="lemTitle">{ syn3:lem2html($node/node(),$side) }</h3>:)
         
         (: handles element span :)
         case element(span) return
             if($node/@type) then
-                <div class="lemAlternative">{ syn3:lem2html($node/node(),$side) }</div>
-            else 
-                <h3 class="lemTitle">{ syn3:lem2html($node/node(),$side) }</h3>
+                <div class="lemAlternative">{ syn3:lem2html($node/node()) }</div>
+            else ()
+                (:<h3 class="lemTitle">{ syn3:lem2html($node/node(),$side) }</h3>:)
 
         (: handles element note :)
         case element(note) return
-            <div class="notes">{ syn3:lem2html($node/node(),$side) }</div>
+            <div class="notes">{ syn3:lem2html($node/node()) }</div>
         
         (: handles element ref :)
         case element(ref) return
@@ -144,7 +114,7 @@ Output: HTML lem :)
             </div>
         
         case element() return
-                syn3:lem2html($node/node(),$side)
+                syn3:lem2html($node/node())
                 
         default return $node/string()
 };

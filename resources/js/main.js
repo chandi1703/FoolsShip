@@ -11,6 +11,7 @@ $(document).ready(function () {
     //synopsis2.js
     lemPopup1(); 
     lemPopup2();
+    createPopover();
     
     //synopsis3.js
     cite();

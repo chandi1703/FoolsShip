@@ -12,7 +12,7 @@
     line-height: 1.6 !important;
     background: white;
     border: solid 0.5px;
-    height: 50vh;
+    height: 80vh;
     padding: 1%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -21,13 +21,13 @@
 }
 .col-text{
     overflow-y:scroll;
-    height: 49vh;
+    height: 79vh;
 }
 .col-md-1.col-centered {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50vh;
+    height: 80vh;
 }
 .chapterL,
 .chapterR {
@@ -51,38 +51,15 @@ h2 {
 }
 
 /******************************LEM BOXES*************************/
+.modal{
+    font-family:junicode;
+}
+.modal-body{
+    font-size:16px !important;
+}
 .btn-default.leml, .btn-default.lemr{
     font-size: 16px !important;
     padding: 0 1% !important;
-}
-.col-md-6.lemmabox{
-    font: 14px !important;
-    font-family:junicode !important;
-    height:20vh;
-    overflow-y:scroll;
-    background:white;
-    width:48%;
-    margin-left:1%;
-    margin-right:1%;
-    border: solid 0.5px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-.leml.overlay, .lemr.overlay {
-    position:absolute;
-    top: 8%;
-    height:auto;
-    left: 7%;
-    width: 80%;
-    padding: 3%;
-}
-/*lem exit button*/
-.leml.overlay .popup-exit, .lemr.overlay .popup-exit {
-    width: 100%;
-    text-align: right;
-    line-height: 90%;
-}
-.lemTitle {
-    border-bottom: 1px solid #FFFAF4;
 }
 /*add text before alternatives*/
 .lemAlternative:first-of-type:before {
@@ -93,20 +70,7 @@ h2 {
     margin-top: 1em;
     border-top: 0.5px solid #FFFAF4;
 }
-
 /*SCROLLBAR BECAUSE UGLY FOR FIREFOX AND CHROME*/
-::-webkit-scrollbar {
-  width: 10px;
-}
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1; 
-}
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #888; 
-}
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555; 
+::-webkit-scrollbar { 
+    display: none; 
 }

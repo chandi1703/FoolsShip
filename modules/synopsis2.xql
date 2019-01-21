@@ -130,8 +130,22 @@ declare function syn2:tei2html($nodes as node()*,$side as xs:string) {
                 
                 let $chapter := $node/ancestor::div/@xml:id
                 let $uri := util:unescape-uri(replace(base-uri($node), '.+/(.+).xml$', '$1'), 'UTF-8')
-                return     
-                <a  class="btn btn-default btn-sm lem{$side}" data-key="{ concat($uri,$chapter,replace($node/@target,'.+.xml#(.+)$','$1')) }">{ $node/node() }</a>
+                (:Wähle Personen, Orte und Anderes:)
+                for $item in $syn2:lem//*[self::person or self::place or self::item]
+                (:Wähle nur die notes in den notes:) 
+                for $note in $item//note/note
+                let $content := $note
+                where $item/@xml:id eq replace($node/@target,'.+.xml#(.+)$','$1')
+                return 
+                
+                <a tabindex="0" 
+                    data-trigger="focus" 
+                    class="btn btn-default btn-sm lem{$side}" 
+                    data-toggle="popover"
+                    data-content="{$content} &lt;a data-toggle='modal' data-target='#{ replace($node/@target,'.+.xml#(.+)$','$1') }'&gt;&lt;i class='fas fa-info-circle'/&gt;&lt;/a&gt;"
+                    data-placement="auto top" 
+                    data-html="true">{ $node/node() }</a>
+                (:<a  class="btn btn-default btn-sm lem{$side}" data-key="{ concat($uri,$chapter,replace($node/@target,'.+.xml#(.+)$','$1')) }">{ $node/node() }</a>:)
                 
             case element() return
                 syn2:tei2html($node/node(),$side)
