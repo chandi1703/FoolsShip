@@ -15,4 +15,5 @@ $(document).ready(function () {
     
     //synopsis3.js
     cite();
+    
 });
