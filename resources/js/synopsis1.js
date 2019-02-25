@@ -35,6 +35,9 @@ Ouput: generated second menu with class json2 */
                     break;
                     case 'GW5047':
                     vals = data.GW5047.split(",");
+                    break;
+                    case 'GW5061':
+                    vals = data.GW5061.split(",");
                     break
                 }
                 
@@ -1503,10 +1506,498 @@ Ouput: generated third menu with class json3 */
                 case 'GW5047n121':
                 vals = data.GW5047P60n121.split(",");
                 break;
-
-            }
-            
-            var $ansicht = $(".ansicht1");
+                case 'GW5061n1':
+                vals = data.GW5061P2n1.split(",");
+                break;
+                case 'GW5061n2':
+                vals = data.GW5061P3n2.split(",");
+                break;
+                case 'GW5061n3':
+                vals = data.GW5061P4n3.split(",");
+                break;
+                case 'GW5061n4':
+                vals = data.GW5061P5n4.split(",");
+                break;
+                case 'GW5061n5':
+                vals = data.GW5061P7n5.split(",");
+                break;
+                case 'GW5061n6':
+                vals = data.GW5061P8n6.split(",");
+                break;
+                case 'GW5061n7':
+                vals = data.GW5061P10n7.split(",");
+                break;
+                case 'GW5061n8':
+                vals = data.GW5061P11n8.split(",");
+                break;
+                case 'GW5061n9':
+                vals = data.GW5061P12n9.split(",");
+                break;
+                case 'GW5061n10':
+                vals = data.GW5061P13n10.split(",");
+                break;
+                case 'GW5061n11':
+                vals = data.GW5061P14n11.split(",");
+                break;
+                case 'GW5061n12':
+                vals = data.GW5061P15n12.split(",");
+                break;
+                case 'GW5061n13':
+                vals = data.GW5061P16n13.split(",");
+                break;
+                case 'GW5061n14':
+                vals = data.GW5061P17n14.split(",");
+                break;
+                case 'GW5061n15':
+                vals = data.GW5061P18n15.split(",");
+                break;
+                case 'GW5061n16':
+                vals = data.GW5061P20n16.split(",");
+                break;
+                case 'GW5061n17':
+                vals = data.GW5061B1n17.split(",");
+                break;
+                case 'GW5061n18':
+                vals = data.GW5061B2n18.split(",");
+                break;
+                case 'GW5061n19':
+                vals = data.GW5061B3n19.split(",");
+                break;
+                case 'GW5061n20':
+                vals = data.GW5061B4n20.split(",");
+                break;
+                case 'GW5061n21':
+                vals = data.GW5061B5n21.split(",");
+                break;
+                case 'GW5061n22':
+                vals = data.GW5061B6n22.split(",");
+                break;
+                case 'GW5061n23':
+                vals = data.GW5061B7n23.split(",");
+                break;
+                case 'GW5061n24':
+                vals = data.GW5061B8n24.split(",");
+                break;
+                case 'GW5061n25':
+                vals = data.GW5061B9n25.split(",");
+                break;
+                case 'GW5061n26':
+                vals = data.GW5061B10n26.split(",");
+                break;
+                case 'GW5061n27':
+                vals = data.GW5061B11n27.split(",");
+                break;
+                case 'GW5061n28':
+                vals = data.GW5061B12n28.split(",");
+                break;
+                case 'GW5061n29':
+                vals = data.GW5061B13n29.split(",");
+                break;
+                case 'GW5061n30':
+                vals = data.GW5061B14n30.split(",");
+                break;
+                case 'GW5061n31':
+                vals = data.GW5061B15n31.split(",");
+                break;
+                case 'GW5061n32':
+                vals = data.GW5061B16n32.split(",");
+                break;
+                case 'GW5061n33':
+                vals = data.GW5061B17n33.split(",");
+                break;
+                case 'GW5061n34':
+                vals = data.GW5061B18n34.split(",");
+                break;
+                case 'GW5061n35':
+                vals = data.GW5061B19n35.split(",");
+                break;
+                case 'GW5061n36':
+                vals = data.GW5061B20n36.split(",");
+                break;
+                case 'GW5061n37':
+                vals = data.GW5061B21n37.split(",");
+                break;
+                case 'GW5061n38':
+                vals = data.GW5061B22n38.split(",");
+                break;
+                case 'GW5061n39':
+                vals = data.GW5061B23n39.split(",");
+                break;
+                case 'GW5061n40':
+                vals = data.GW5061B24n40.split(",");
+                break;
+                case 'GW5061n41':
+                vals = data.GW5061B25n41.split(",");
+                break;
+                case 'GW5061n42':
+                vals = data.GW5061B26n42.split(",");
+                break;
+                case 'GW5061n43':
+                vals = data.GW5061B27n43.split(",");
+                break;
+                case 'GW5061n44':
+                vals = data.GW5061B28n44.split(",");
+                break;
+                case 'GW5061n45':
+                vals = data.GW5061B29n45.split(",");
+                break;
+                case 'GW5061n46':
+                vals = data.GW5061B30n46.split(",");
+                break;
+                case 'GW5061n47':
+                vals = data.GW5061B31n47.split(",");
+                break;
+                case 'GW5061n48':
+                vals = data.GW5061B32n48.split(",");
+                break;
+                case 'GW5061n49':
+                vals = data.GW5061B33n49.split(",");
+                break;
+                case 'GW5061n50':
+                vals = data.GW5061B34n50.split(",");
+                break;
+                case 'GW5061n51':
+                vals = data.GW5061B35n51.split(",");
+                break;
+                case 'GW5061n52':
+                vals = data.GW5061B37n52.split(",");
+                break;
+                case 'GW5061n53':
+                vals = data.GW5061B38n53.split(",");
+                break;
+                case 'GW5061n54':
+                vals = data.GW5061B39n54.split(",");
+                break;
+                case 'GW5061n55':
+                vals = data.GW5061B40n55.split(",");
+                break;
+                case 'GW5061n56':
+                vals = data.GW5061B41n56.split(",");
+                break;
+                case 'GW5061n57':
+                vals = data.GW5061B42n57.split(",");
+                break;
+                case 'GW5061n58':
+                vals = data.GW5061B43n58.split(",");
+                break;
+                case 'GW5061n59':
+                vals = data.GW5061B44n59.split(",");
+                break;
+                case 'GW5061n60':
+                vals = data.GW5061B45n60.split(",");
+                break;
+                case 'GW5061n61':
+                vals = data.GW5061B46n61.split(",");
+                break;
+                case 'GW5061n62':
+                vals = data.GW5061B47n62.split(",");
+                break;
+                case 'GW5061n63':
+                vals = data.GW5061B49n63.split(",");
+                break;
+                case 'GW5061n64':
+                vals = data.GW5061B50n64.split(",");
+                break;
+                case 'GW5061n65':
+                vals = data.GW5061B51n65.split(",");
+                break;
+                case 'GW5061n66':
+                vals = data.GW5061B52n66.split(",");
+                break;
+                case 'GW5061n67':
+                vals = data.GW5061B53n67.split(",");
+                break;
+                case 'GW5061n68':
+                vals = data.GW5061B54n68.split(",");
+                break;
+                case 'GW5061n69':
+                vals = data.GW5061B55n69.split(",");
+                break;
+                case 'GW5061n70':
+                vals = data.GW5061B56n70.split(",");
+                break;
+                case 'GW5061n71':
+                vals = data.GW5061B57n71.split(",");
+                break;
+                case 'GW5061n72':
+                vals = data.GW5061B58n72.split(",");
+                break;
+                case 'GW5061n73':
+                vals = data.GW5061B59n73.split(",");
+                break;
+                case 'GW5061n74':
+                vals = data.GW5061B60n74.split(",");
+                break;
+                case 'GW5061n75':
+                vals = data.GW5061B61n75.split(",");
+                break;
+                case 'GW5061n76':
+                vals = data.GW5061B62n76.split(",");
+                break;
+                case 'GW5061n77':
+                vals = data.GW5061B63n77.split(",");
+                break;
+                case 'GW5061n78':
+                vals = data.GW5061B64n78.split(",");
+                break;
+                case 'GW5061n79':
+                vals = data.GW5061B65n79.split(",");
+                break;
+                case 'GW5061n80':
+                vals = data.GW5061B66n80.split(",");
+                break;
+                case 'GW5061n81':
+                vals = data.GW5061B67n81.split(",");
+                break;
+                case 'GW5061n82':
+                vals = data.GW5061B68n82.split(",");
+                break;
+                case 'GW5061n83':
+                vals = data.GW5061B69n83.split(",");
+                break;
+                case 'GW5061n84':
+                vals = data.GW5061B70n84.split(",");
+                break;
+                case 'GW5061n85':
+                vals = data.GW5061B71n85.split(",");
+                break;
+                case 'GW5061n86':
+                vals = data.GW5061B72n86.split(",");
+                break;
+                case 'GW5061n87':
+                vals = data.GW5061B73n87.split(",");
+                break;
+                case 'GW5061n88':
+                vals = data.GW5061B76n88.split(",");
+                break;
+                case 'GW5061n89':
+                vals = data.GW5061B77n89.split(",");
+                break;
+                case 'GW5061n90':
+                vals = data.GW5061B78n90.split(",");
+                break;
+                case 'GW5061n91':
+                vals = data.GW5061B79n91.split(",");
+                break;
+                case 'GW5061n92':
+                vals = data.GW5061B80n92.split(",");
+                break;
+                case 'GW5061n93':
+                vals = data.GW5061B81n93.split(",");
+                break;
+                case 'GW5061n94':
+                vals = data.GW5061B82n94.split(",");
+                break;
+                case 'GW5061n95':
+                vals = data.GW5061B83n95.split(",");
+                break;
+                case 'GW5061n96':
+                vals = data.GW5061B84n96.split(",");
+                break;
+                case 'GW5061n97':
+                vals = data.GW5061B85n97.split(",");
+                break;
+                case 'GW5061n98':
+                vals = data.GW5061B86n98.split(",");
+                break;
+                case 'GW5061n99':
+                vals = data.GW5061B87n99.split(",");
+                break;
+                case 'GW5061n100':
+                vals = data.GW5061B88n100.split(",");
+                break;
+                case 'GW5061n101':
+                vals = data.GW5061B89n101.split(",");
+                break;
+                case 'GW5061n102':
+                vals = data.GW5061B90n102.split(",");
+                break;
+                case 'GW5061n103':
+                vals = data.GW5061B91n103.split(",");
+                break;
+                case 'GW5061n104':
+                vals = data.GW5061B92n104.split(",");
+                break;
+                case 'GW5061n105':
+                vals = data.GW5061B93n105.split(",");
+                break;
+                case 'GW5061n106':
+                vals = data.GW5061B94n106.split(",");
+                break;
+                case 'GW5061n107':
+                vals = data.GW5061B95n107.split(",");
+                break;
+                case 'GW5061n108':
+                vals = data.GW5061B96n108.split(",");
+                break;
+                case 'GW5061n109':
+                vals = data.GW5061B97n109.split(",");
+                break;
+                case 'GW5061n110':
+                vals = data.GW5061B98n110.split(",");
+                break;
+                case 'GW5061n111':
+                vals = data.GW5061B99n111.split(",");
+                break;
+                case 'GW5061n112':
+                vals = data.GW5061B100n112.split(",");
+                break;
+                case 'GW5061n113':
+                vals = data.GW5061B101n113.split(",");
+                break;
+                case 'GW5061n114':
+                vals = data.GW5061B102n114.split(",");
+                break;
+                case 'GW5061n115':
+                vals = data.GW5061B103n115.split(",");
+                break;
+                case 'GW5061n116':
+                vals = data.GW5061B104n116.split(",");
+                break;
+                case 'GW5061n117':
+                vals = data.GW5061B105n117.split(",");
+                break;
+                case 'GW5061n118':
+                vals = data.GW5061B106n118.split(",");
+                break;
+                case 'GW5061n119':
+                vals = data.GW5061B107n119.split(",");
+                break;
+                case 'GW5061n120':
+                vals = data.GW5061B109n120.split(",");
+                break;
+                case 'GW5061n121':
+                vals = data.GW5061B110n121.split(",");
+                break;
+                case 'GW5061n122':
+                vals = data.GW5061B111n122.split(",");
+                break;
+                case 'GW5061n123':
+                vals = data.GW5061B112n123.split(",");
+                break;
+                case 'GW5061n124':
+                vals = data.GW5061B114n124.split(",");
+                break;
+                case 'GW5061n125':
+                vals = data.GW5061P21n125.split(",");
+                break;
+                case 'GW5061n126':
+                vals = data.GW5061P22n126.split(",");
+                break;
+                case 'GW5061n127':
+                vals = data.GW5061P23n127.split(",");
+                break;
+                case 'GW5061n128':
+                vals = data.GW5061P24n128.split(",");
+                break;
+                case 'GW5061n129':
+                vals = data.GW5061P25n129.split(",");
+                break;
+                case 'GW5061n130':
+                vals = data.GW5061P26n130.split(",");
+                break;
+                case 'GW5061n131':
+                vals = data.GW5061B108n131.split(",");
+                break;
+                case 'GW5061n133':
+                vals = data.GW5061B48n133.split(",");
+                break;
+                case 'GW5061n134':
+                vals = data.GW5061P28n134.split(",");
+                break;
+                case 'GW5061n135':
+                vals = data.GW5061P29n135.split(",");
+                break;
+                case 'GW5061n136':
+                vals = data.GW5061P30n136.split(",");
+                break;
+                case 'GW5061n137':
+                vals = data.GW5061P31n137.split(",");
+                break;
+                case 'GW5061n138':
+                vals = data.GW5061P32n138.split(",");
+                break;
+                case 'GW5061n139':
+                vals = data.GW5061P36n139.split(",");
+                break;
+                case 'GW5061n140':
+                vals = data.GW5061P37n140.split(",");
+                break;
+                case 'GW5061n141':
+                vals = data.GW5061P38n141.split(",");
+                break;
+                case 'GW5061n142':
+                vals = data.GW5061P39n142.split(",");
+                break;
+                case 'GW5061n143':
+                vals = data.GW5061P40n143.split(",");
+                break;
+                case 'GW5061n144':
+                vals = data.GW5061P41n144.split(",");
+                break;
+                case 'GW5061n145':
+                vals = data.GW5061P42n145.split(",");
+                break;
+                case 'GW5061n146':
+                vals = data.GW5061P43n146.split(",");
+                break;
+                case 'GW5061n147':
+                vals = data.GW5061P44n147.split(",");
+                break;
+                case 'GW5061n148':
+                vals = data.GW5061P45n148.split(",");
+                break;
+                case 'GW5061n149':
+                vals = data.GW5061P46n149.split(",");
+                break;
+                case 'GW5061n150':
+                vals = data.GW5061P47n150.split(",");
+                break;
+                case 'GW5061n151':
+                vals = data.GW5061P48n151.split(",");
+                break;
+                case 'GW5061n152':
+                vals = data.GW5061P49n152.split(",");
+                break;
+                case 'GW5061n153':
+                vals = data.GW5061P50n153.split(",");
+                break;
+                case 'GW5061n154':
+                vals = data.GW5061P51n154.split(",");
+                break;
+                case 'GW5061n155':
+                vals = data.GW5061P52n155.split(",");
+                break;
+                case 'GW5061n156':
+                vals = data.GW5061P53n156.split(",");
+                break;
+                case 'GW5061n157':
+                vals = data.GW5061P54n157.split(",");
+                break;
+                case 'GW5061n158':
+                vals = data.GW5061P55n158.split(",");
+                break;
+                case 'GW5061n159':
+                vals = data.GW5061P56n159.split(",");
+                break;
+                case 'GW5061n160':
+                vals = data.GW5061P57n160.split(",");
+                break;
+                case 'GW5061n161':
+                vals = data.GW5061P58n161.split(",");
+                break;
+                case 'GW5061n162':
+                vals = data.GW5061P59n162.split(",");
+                break;
+                case 'GW5061n163':
+                vals = data.GW5061P60n163.split(",");
+                break;
+                case 'GW5061n164':
+                vals = data.GW5061P61n164.split(",");
+                break;
+                }
+                
+               var $ansicht = $(".ansicht1");
             $ansicht.empty();
             $ansicht.append("<option value=''></option>")
             $.each(vals, function (index, value) {
@@ -1527,8 +2018,8 @@ Ouput: generated third menu with class json3 */
                     });
             
             $ansicht.trigger("chosen:updated");
+            });
         });
-    });
 })};
 
 function menuAusgabe2(){
@@ -1558,6 +2049,9 @@ Ouput: generated second menu with class json2 */
                     break;
                     case 'GW5047':
                     vals = data.GW5047.split(",");
+                    break;
+                    case 'GW5061':
+                    vals = data.GW5061.split(",");
                     break
                 }
                 
@@ -3025,6 +3519,495 @@ Ouput: generated third menu with class json3 */
                 break;
                 case 'GW5047n121':
                 vals = data.GW5047P60n121.split(",");
+                break;
+                case 'GW5061n1':
+                vals = data.GW5061P2n1.split(",");
+                break;
+                case 'GW5061n2':
+                vals = data.GW5061P3n2.split(",");
+                break;
+                case 'GW5061n3':
+                vals = data.GW5061P4n3.split(",");
+                break;
+                case 'GW5061n4':
+                vals = data.GW5061P5n4.split(",");
+                break;
+                case 'GW5061n5':
+                vals = data.GW5061P7n5.split(",");
+                break;
+                case 'GW5061n6':
+                vals = data.GW5061P8n6.split(",");
+                break;
+                case 'GW5061n7':
+                vals = data.GW5061P10n7.split(",");
+                break;
+                case 'GW5061n8':
+                vals = data.GW5061P11n8.split(",");
+                break;
+                case 'GW5061n9':
+                vals = data.GW5061P12n9.split(",");
+                break;
+                case 'GW5061n10':
+                vals = data.GW5061P13n10.split(",");
+                break;
+                case 'GW5061n11':
+                vals = data.GW5061P14n11.split(",");
+                break;
+                case 'GW5061n12':
+                vals = data.GW5061P15n12.split(",");
+                break;
+                case 'GW5061n13':
+                vals = data.GW5061P16n13.split(",");
+                break;
+                case 'GW5061n14':
+                vals = data.GW5061P17n14.split(",");
+                break;
+                case 'GW5061n15':
+                vals = data.GW5061P18n15.split(",");
+                break;
+                case 'GW5061n16':
+                vals = data.GW5061P20n16.split(",");
+                break;
+                case 'GW5061n17':
+                vals = data.GW5061B1n17.split(",");
+                break;
+                case 'GW5061n18':
+                vals = data.GW5061B2n18.split(",");
+                break;
+                case 'GW5061n19':
+                vals = data.GW5061B3n19.split(",");
+                break;
+                case 'GW5061n20':
+                vals = data.GW5061B4n20.split(",");
+                break;
+                case 'GW5061n21':
+                vals = data.GW5061B5n21.split(",");
+                break;
+                case 'GW5061n22':
+                vals = data.GW5061B6n22.split(",");
+                break;
+                case 'GW5061n23':
+                vals = data.GW5061B7n23.split(",");
+                break;
+                case 'GW5061n24':
+                vals = data.GW5061B8n24.split(",");
+                break;
+                case 'GW5061n25':
+                vals = data.GW5061B9n25.split(",");
+                break;
+                case 'GW5061n26':
+                vals = data.GW5061B10n26.split(",");
+                break;
+                case 'GW5061n27':
+                vals = data.GW5061B11n27.split(",");
+                break;
+                case 'GW5061n28':
+                vals = data.GW5061B12n28.split(",");
+                break;
+                case 'GW5061n29':
+                vals = data.GW5061B13n29.split(",");
+                break;
+                case 'GW5061n30':
+                vals = data.GW5061B14n30.split(",");
+                break;
+                case 'GW5061n31':
+                vals = data.GW5061B15n31.split(",");
+                break;
+                case 'GW5061n32':
+                vals = data.GW5061B16n32.split(",");
+                break;
+                case 'GW5061n33':
+                vals = data.GW5061B17n33.split(",");
+                break;
+                case 'GW5061n34':
+                vals = data.GW5061B18n34.split(",");
+                break;
+                case 'GW5061n35':
+                vals = data.GW5061B19n35.split(",");
+                break;
+                case 'GW5061n36':
+                vals = data.GW5061B20n36.split(",");
+                break;
+                case 'GW5061n37':
+                vals = data.GW5061B21n37.split(",");
+                break;
+                case 'GW5061n38':
+                vals = data.GW5061B22n38.split(",");
+                break;
+                case 'GW5061n39':
+                vals = data.GW5061B23n39.split(",");
+                break;
+                case 'GW5061n40':
+                vals = data.GW5061B24n40.split(",");
+                break;
+                case 'GW5061n41':
+                vals = data.GW5061B25n41.split(",");
+                break;
+                case 'GW5061n42':
+                vals = data.GW5061B26n42.split(",");
+                break;
+                case 'GW5061n43':
+                vals = data.GW5061B27n43.split(",");
+                break;
+                case 'GW5061n44':
+                vals = data.GW5061B28n44.split(",");
+                break;
+                case 'GW5061n45':
+                vals = data.GW5061B29n45.split(",");
+                break;
+                case 'GW5061n46':
+                vals = data.GW5061B30n46.split(",");
+                break;
+                case 'GW5061n47':
+                vals = data.GW5061B31n47.split(",");
+                break;
+                case 'GW5061n48':
+                vals = data.GW5061B32n48.split(",");
+                break;
+                case 'GW5061n49':
+                vals = data.GW5061B33n49.split(",");
+                break;
+                case 'GW5061n50':
+                vals = data.GW5061B34n50.split(",");
+                break;
+                case 'GW5061n51':
+                vals = data.GW5061B35n51.split(",");
+                break;
+                case 'GW5061n52':
+                vals = data.GW5061B37n52.split(",");
+                break;
+                case 'GW5061n53':
+                vals = data.GW5061B38n53.split(",");
+                break;
+                case 'GW5061n54':
+                vals = data.GW5061B39n54.split(",");
+                break;
+                case 'GW5061n55':
+                vals = data.GW5061B40n55.split(",");
+                break;
+                case 'GW5061n56':
+                vals = data.GW5061B41n56.split(",");
+                break;
+                case 'GW5061n57':
+                vals = data.GW5061B42n57.split(",");
+                break;
+                case 'GW5061n58':
+                vals = data.GW5061B43n58.split(",");
+                break;
+                case 'GW5061n59':
+                vals = data.GW5061B44n59.split(",");
+                break;
+                case 'GW5061n60':
+                vals = data.GW5061B45n60.split(",");
+                break;
+                case 'GW5061n61':
+                vals = data.GW5061B46n61.split(",");
+                break;
+                case 'GW5061n62':
+                vals = data.GW5061B47n62.split(",");
+                break;
+                case 'GW5061n63':
+                vals = data.GW5061B49n63.split(",");
+                break;
+                case 'GW5061n64':
+                vals = data.GW5061B50n64.split(",");
+                break;
+                case 'GW5061n65':
+                vals = data.GW5061B51n65.split(",");
+                break;
+                case 'GW5061n66':
+                vals = data.GW5061B52n66.split(",");
+                break;
+                case 'GW5061n67':
+                vals = data.GW5061B53n67.split(",");
+                break;
+                case 'GW5061n68':
+                vals = data.GW5061B54n68.split(",");
+                break;
+                case 'GW5061n69':
+                vals = data.GW5061B55n69.split(",");
+                break;
+                case 'GW5061n70':
+                vals = data.GW5061B56n70.split(",");
+                break;
+                case 'GW5061n71':
+                vals = data.GW5061B57n71.split(",");
+                break;
+                case 'GW5061n72':
+                vals = data.GW5061B58n72.split(",");
+                break;
+                case 'GW5061n73':
+                vals = data.GW5061B59n73.split(",");
+                break;
+                case 'GW5061n74':
+                vals = data.GW5061B60n74.split(",");
+                break;
+                case 'GW5061n75':
+                vals = data.GW5061B61n75.split(",");
+                break;
+                case 'GW5061n76':
+                vals = data.GW5061B62n76.split(",");
+                break;
+                case 'GW5061n77':
+                vals = data.GW5061B63n77.split(",");
+                break;
+                case 'GW5061n78':
+                vals = data.GW5061B64n78.split(",");
+                break;
+                case 'GW5061n79':
+                vals = data.GW5061B65n79.split(",");
+                break;
+                case 'GW5061n80':
+                vals = data.GW5061B66n80.split(",");
+                break;
+                case 'GW5061n81':
+                vals = data.GW5061B67n81.split(",");
+                break;
+                case 'GW5061n82':
+                vals = data.GW5061B68n82.split(",");
+                break;
+                case 'GW5061n83':
+                vals = data.GW5061B69n83.split(",");
+                break;
+                case 'GW5061n84':
+                vals = data.GW5061B70n84.split(",");
+                break;
+                case 'GW5061n85':
+                vals = data.GW5061B71n85.split(",");
+                break;
+                case 'GW5061n86':
+                vals = data.GW5061B72n86.split(",");
+                break;
+                case 'GW5061n87':
+                vals = data.GW5061B73n87.split(",");
+                break;
+                case 'GW5061n88':
+                vals = data.GW5061B76n88.split(",");
+                break;
+                case 'GW5061n89':
+                vals = data.GW5061B77n89.split(",");
+                break;
+                case 'GW5061n90':
+                vals = data.GW5061B78n90.split(",");
+                break;
+                case 'GW5061n91':
+                vals = data.GW5061B79n91.split(",");
+                break;
+                case 'GW5061n92':
+                vals = data.GW5061B80n92.split(",");
+                break;
+                case 'GW5061n93':
+                vals = data.GW5061B81n93.split(",");
+                break;
+                case 'GW5061n94':
+                vals = data.GW5061B82n94.split(",");
+                break;
+                case 'GW5061n95':
+                vals = data.GW5061B83n95.split(",");
+                break;
+                case 'GW5061n96':
+                vals = data.GW5061B84n96.split(",");
+                break;
+                case 'GW5061n97':
+                vals = data.GW5061B85n97.split(",");
+                break;
+                case 'GW5061n98':
+                vals = data.GW5061B86n98.split(",");
+                break;
+                case 'GW5061n99':
+                vals = data.GW5061B87n99.split(",");
+                break;
+                case 'GW5061n100':
+                vals = data.GW5061B88n100.split(",");
+                break;
+                case 'GW5061n101':
+                vals = data.GW5061B89n101.split(",");
+                break;
+                case 'GW5061n102':
+                vals = data.GW5061B90n102.split(",");
+                break;
+                case 'GW5061n103':
+                vals = data.GW5061B91n103.split(",");
+                break;
+                case 'GW5061n104':
+                vals = data.GW5061B92n104.split(",");
+                break;
+                case 'GW5061n105':
+                vals = data.GW5061B93n105.split(",");
+                break;
+                case 'GW5061n106':
+                vals = data.GW5061B94n106.split(",");
+                break;
+                case 'GW5061n107':
+                vals = data.GW5061B95n107.split(",");
+                break;
+                case 'GW5061n108':
+                vals = data.GW5061B96n108.split(",");
+                break;
+                case 'GW5061n109':
+                vals = data.GW5061B97n109.split(",");
+                break;
+                case 'GW5061n110':
+                vals = data.GW5061B98n110.split(",");
+                break;
+                case 'GW5061n111':
+                vals = data.GW5061B99n111.split(",");
+                break;
+                case 'GW5061n112':
+                vals = data.GW5061B100n112.split(",");
+                break;
+                case 'GW5061n113':
+                vals = data.GW5061B101n113.split(",");
+                break;
+                case 'GW5061n114':
+                vals = data.GW5061B102n114.split(",");
+                break;
+                case 'GW5061n115':
+                vals = data.GW5061B103n115.split(",");
+                break;
+                case 'GW5061n116':
+                vals = data.GW5061B104n116.split(",");
+                break;
+                case 'GW5061n117':
+                vals = data.GW5061B105n117.split(",");
+                break;
+                case 'GW5061n118':
+                vals = data.GW5061B106n118.split(",");
+                break;
+                case 'GW5061n119':
+                vals = data.GW5061B107n119.split(",");
+                break;
+                case 'GW5061n120':
+                vals = data.GW5061B109n120.split(",");
+                break;
+                case 'GW5061n121':
+                vals = data.GW5061B110n121.split(",");
+                break;
+                case 'GW5061n122':
+                vals = data.GW5061B111n122.split(",");
+                break;
+                case 'GW5061n123':
+                vals = data.GW5061B112n123.split(",");
+                break;
+                case 'GW5061n124':
+                vals = data.GW5061B114n124.split(",");
+                break;
+                case 'GW5061n125':
+                vals = data.GW5061P21n125.split(",");
+                break;
+                case 'GW5061n126':
+                vals = data.GW5061P22n126.split(",");
+                break;
+                case 'GW5061n127':
+                vals = data.GW5061P23n127.split(",");
+                break;
+                case 'GW5061n128':
+                vals = data.GW5061P24n128.split(",");
+                break;
+                case 'GW5061n129':
+                vals = data.GW5061P25n129.split(",");
+                break;
+                case 'GW5061n130':
+                vals = data.GW5061P26n130.split(",");
+                break;
+                case 'GW5061n131':
+                vals = data.GW5061B108n131.split(",");
+                break;
+                case 'GW5061n133':
+                vals = data.GW5061B48n133.split(",");
+                break;
+                case 'GW5061n134':
+                vals = data.GW5061P28n134.split(",");
+                break;
+                case 'GW5061n135':
+                vals = data.GW5061P29n135.split(",");
+                break;
+                case 'GW5061n136':
+                vals = data.GW5061P30n136.split(",");
+                break;
+                case 'GW5061n137':
+                vals = data.GW5061P31n137.split(",");
+                break;
+                case 'GW5061n138':
+                vals = data.GW5061P32n138.split(",");
+                break;
+                case 'GW5061n139':
+                vals = data.GW5061P36n139.split(",");
+                break;
+                case 'GW5061n140':
+                vals = data.GW5061P37n140.split(",");
+                break;
+                case 'GW5061n141':
+                vals = data.GW5061P38n141.split(",");
+                break;
+                case 'GW5061n142':
+                vals = data.GW5061P39n142.split(",");
+                break;
+                case 'GW5061n143':
+                vals = data.GW5061P40n143.split(",");
+                break;
+                case 'GW5061n144':
+                vals = data.GW5061P41n144.split(",");
+                break;
+                case 'GW5061n145':
+                vals = data.GW5061P42n145.split(",");
+                break;
+                case 'GW5061n146':
+                vals = data.GW5061P43n146.split(",");
+                break;
+                case 'GW5061n147':
+                vals = data.GW5061P44n147.split(",");
+                break;
+                case 'GW5061n148':
+                vals = data.GW5061P45n148.split(",");
+                break;
+                case 'GW5061n149':
+                vals = data.GW5061P46n149.split(",");
+                break;
+                case 'GW5061n150':
+                vals = data.GW5061P47n150.split(",");
+                break;
+                case 'GW5061n151':
+                vals = data.GW5061P48n151.split(",");
+                break;
+                case 'GW5061n152':
+                vals = data.GW5061P49n152.split(",");
+                break;
+                case 'GW5061n153':
+                vals = data.GW5061P50n153.split(",");
+                break;
+                case 'GW5061n154':
+                vals = data.GW5061P51n154.split(",");
+                break;
+                case 'GW5061n155':
+                vals = data.GW5061P52n155.split(",");
+                break;
+                case 'GW5061n156':
+                vals = data.GW5061P53n156.split(",");
+                break;
+                case 'GW5061n157':
+                vals = data.GW5061P54n157.split(",");
+                break;
+                case 'GW5061n158':
+                vals = data.GW5061P55n158.split(",");
+                break;
+                case 'GW5061n159':
+                vals = data.GW5061P56n159.split(",");
+                break;
+                case 'GW5061n160':
+                vals = data.GW5061P57n160.split(",");
+                break;
+                case 'GW5061n161':
+                vals = data.GW5061P58n161.split(",");
+                break;
+                case 'GW5061n162':
+                vals = data.GW5061P59n162.split(",");
+                break;
+                case 'GW5061n163':
+                vals = data.GW5061P60n163.split(",");
+                break;
+                case 'GW5061n164':
+                vals = data.GW5061P61n164.split(",");
                 break;
 
             }
