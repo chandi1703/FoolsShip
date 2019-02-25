@@ -6,6 +6,8 @@ declare default element namespace "http://www.tei-c.org/ns/1.0";
 
 import module namespace templates = "http://exist-db.org/xquery/templates";
 import module namespace config = "http://exist-db.org/apps/narrenapp/config" at "config.xqm";
+
+(: functx wird für komplexe reguläre Ausdrücke benötigt :)
 import module namespace functx = "http://www.functx.com";
 
 declare function syn4:create-button($node as node(), $model as map(*), $direction as xs:string) {
@@ -13,7 +15,7 @@ declare function syn4:create-button($node as node(), $model as map(*), $directio
     (: Input: direction, clicking left or right
 Output: fontawesome buttons :)
     
-    switch ($direction)
+    switch ( $direction )
         case ("previous")
             return
                 <button

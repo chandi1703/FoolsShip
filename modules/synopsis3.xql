@@ -1,5 +1,5 @@
 xquery version "3.1";
-(: This file handles lems and marginal notes of fool's ships in synopsis.html. :)
+(: This file handles lems of fool's ships in synopsis.html. :)
 
 module namespace syn3="http://oc.narragonien-digital.de/syn3";
 declare default element namespace "http://www.tei-c.org/ns/1.0";
@@ -32,6 +32,7 @@ declare function syn3:getLem($vers as xs:string, $book as xs:string, $chap as xs
         for $document in $syn3:lem
         for $item in $document//*[self::person or self::place or self::item][@xml:id = $lemId]
             return
+            (: Klasse Modal von Bootstrap. Bildet ein Fenster mit weiterführenden Informationen :)
             <div class="modal fade" id="{ $item/@xml:id }" role="dialog">
                 <div class="modal-dialog modal-md">
                     <div class="modal-content">
@@ -40,7 +41,7 @@ declare function syn3:getLem($vers as xs:string, $book as xs:string, $chap as xs
                             <h1 class="modal-title"><b>{ $item/*[self::persName or self::placeName or self::span][not(@type)] }</b></h1>
                         </div>
                         <div class="modal-body">
-                            <p>{ syn3:lem2html($item) }</p>
+                            <p>{ syn3:lem2html( $item ) }</p>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal"
@@ -49,7 +50,6 @@ declare function syn3:getLem($vers as xs:string, $book as xs:string, $chap as xs
                     </div>
                 </div>
             </div>
-
 };
 
 

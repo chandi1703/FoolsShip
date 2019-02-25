@@ -86,8 +86,15 @@ declare function syn2:tei2html($nodes as node()*,$side as xs:string) {
                     <div class="motto" style="font-size:small;margin-bottom:4%">{ syn2:tei2html($node/node(),$side) }</div>
                 
                 else if ($node/@type = "signatureTitle") then
-                    (<div class="signatureMark">{ syn2:tei2html($node/node(),$side) }</div>,
-                    <hr class="pageturn"/>)
+                   (: (<div class="signatureMark">{ syn2:tei2html($node/node(),$side) }</div>,
+                    <hr class="pageturn"/>):)
+                    <div class="signatureMark">{ syn2:tei2html($node/node(),$side) }</div>
+                    
+                 else if ($node/@type = "folio") then
+                    <div class="folio">{ syn2:tei2html($node/node(),$side) }</div>
+                    
+                (: Marginalien werden an anderer Stelle aufgerufen und verarbeitet, daher auslassen :) 
+                else if ($node/@type = "marginalie") then ()
                     
                 else syn2:tei2html($node/node(),$side)
                 
@@ -109,7 +116,11 @@ declare function syn2:tei2html($nodes as node()*,$side as xs:string) {
                                 <div class='ocr'>{ for $child in $node//orig return syn2:tei2html($child,$side) }</div>
                             default return ()
                     default return "WTF"
-                    
+             
+             case element (pb) return
+                 <hr class="pageturn"/>
+             
+            (: pictures are not in narrenapp itself but inside of a directory on database level :)
             case element (figure) return
                 let $login := xmldb:login('/db/img/woodcut', 'guest', '')
                 return
@@ -128,12 +139,13 @@ declare function syn2:tei2html($nodes as node()*,$side as xs:string) {
              (: handling of lems, see also synopsis3.xql :) 
             case element(ref) return 
                 
-                let $chapter := $node/ancestor::div/@xml:id
+               (: let $chapter := $node/ancestor::div/@xml:id:)
+                
                 let $uri := util:unescape-uri(replace(base-uri($node), '.+/(.+).xml$', '$1'), 'UTF-8')
                 (:Wähle Personen, Orte und Anderes:)
                 for $item in $syn2:lem//*[self::person or self::place or self::item]
-                (:Wähle nur die notes in den notes:) 
-                for $note in $item//note/note
+                (: Wähle nur die unterste Ebene der Notes :) 
+                for $note in $item//note[not(descendant::note)]
                 let $content := $note
                 where $item/@xml:id eq replace($node/@target,'.+.xml#(.+)$','$1')
                 return 
@@ -142,10 +154,9 @@ declare function syn2:tei2html($nodes as node()*,$side as xs:string) {
                     data-trigger="focus" 
                     class="btn btn-default btn-sm lem{$side}" 
                     data-toggle="popover"
-                    data-content="{$content} &lt;a data-toggle='modal' data-target='#{ replace($node/@target,'.+.xml#(.+)$','$1') }'&gt;&lt;i class='fas fa-info-circle'/&gt;&lt;/a&gt;"
+                    data-content="{$content} &lt;a data-toggle='modal' data-target='#{ replace($node/@target,'.+.xml#(.+)$','$1') }'&gt; ...mehr&lt;/a&gt;"
                     data-placement="auto top" 
                     data-html="true">{ $node/node() }</a>
-                (:<a  class="btn btn-default btn-sm lem{$side}" data-key="{ concat($uri,$chapter,replace($node/@target,'.+.xml#(.+)$','$1')) }">{ $node/node() }</a>:)
                 
             case element() return
                 syn2:tei2html($node/node(),$side)
