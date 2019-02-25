@@ -1,10 +1,9 @@
 /* Handles lemma and marginal note popups */
-
-
 function createPopover(){
    $(document).ready(function(){
   $('[data-toggle="popover"]').popover({
-      placement: 'auto top'
+      placement: 'auto top',
+      container: 'body'
   }); 
 });
 }
