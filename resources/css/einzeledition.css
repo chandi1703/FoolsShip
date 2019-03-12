@@ -1,0 +1,90 @@
+/******************************* Schriftart ****************************/
+
+@font-face{
+    font-family:junicode;
+    src: url(../fonts/Junicode.ttf);
+}
+
+/******************************* Menü ****************************/
+
+#syn-choose{
+    
+}
+
+
+/******************************* Bild-Box ****************************/
+
+#syn-pic{
+    overflow: scroll;
+    background: white;
+    border: solid 0.5px;
+    height: 80vh;
+    padding: 1%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/******************************* Text-Box ****************************/
+
+#syn-text{
+    
+    font-size: 16px !important;
+    font-family: junicode !important;
+    line-height: 1.6 !important;
+    background: white;
+    border: solid 0.5px;
+    height: 80vh;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /*margin: 7%;*/
+}
+
+.col-text{
+    overflow-y: scroll;
+}
+
+/******************************* Syn-Inhalts-Box ****************************/
+
+#syn-content{
+    margin: 1vh 2vw 1vh 2vw;
+}
+
+/******************************* Trennstriche ****************************/
+
+.syn-hr{
+    width: 95%;
+}
+
+/******************************* Menü-Bereich ****************************/
+
+.menue{
+    text-align: center;
+    margin: 2vh 0 2vh 0;
+}
+
+.menue-element{
+    width: 15vw;
+    /*display: inline-block;*/
+}
+
+textarea {
+    resize: none;
+    line-height: 0.56 !important;
+}
+/******************************* Bild ****************************/
+
+#syn-pic > img{
+    
+}
+.seperator{
+    width: 5vw;
+}
+
+.col-md-1.col-centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+/*SCROLLBAR BECAUSE UGLY FOR FIREFOX AND CHROME*/
+::-webkit-scrollbar { 
+    display: none; 
+}
