@@ -43,15 +43,16 @@ Output: second form with hidden parameters the user has chosen from first form :
                             class="col-md-4">
                             <select
                                 class="ausgabe2 chosen-select synMenu"
+                                id="ausgabe2"
                                 data-placeholder="Ausgabe wählen"
                                 name="book2"
                                 style="width:100%">
-                                <option value=""/>
+                                <!--<option value=""/>
                                     <option value="GW5041">Brandt, 'Narrenschiff' Basel 11.2.1494</option>
                                     <option value="GW5046">Brandt, 'Narrenschiff' Basel 3.3.1495</option>
                                     <option value="GW5047">Brandt, 'Narrenschiff' Basel 12.2.1499</option>
                                     <option value="GW5042">Brandt, 'Narrenschiff' Nürnberger Bearb.</option>
-                                    <option value="GW5061">Locher, 'Stultifera Navis' Basel 1.8.1497</option>
+                                    <option value="GW5061">Locher, 'Stultifera Navis' Basel 1.8.1497</option>-->
                                 <input
                                     type="hidden"
                                     name="book1"
@@ -62,6 +63,7 @@ Output: second form with hidden parameters the user has chosen from first form :
                             class="col-md-4">
                             <select
                                 class="kapitel2 chosen-select synMenu"
+                                id="kapitel2"
                                 data-placeholder="Kapitel wählen"
                                 name="chap2"
                                 style="width:100%">
@@ -75,6 +77,7 @@ Output: second form with hidden parameters the user has chosen from first form :
                             class="col-md-4">
                             <select
                                 class="ansicht2 chosen-select synMenu"
+                                id="ansicht2"
                                 data-placeholder="Ansicht wählen"
                                 name="vers2"
                                 onchange="this.form.submit()"

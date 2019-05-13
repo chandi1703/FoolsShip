@@ -3,6 +3,7 @@ function createPopover(){
    $(document).ready(function(){
   $('[data-toggle="popover"]').popover({
       placement: 'auto top',
+      /*Damit Lemma Popups auf Body Ebene liegen*/
       container: 'body'
   }); 
 });

@@ -2,111 +2,119 @@
 <!-- This page shows a two-window synopsis, where the user can choose between different fool's ships --><!-- Connected to: main.css, synopsis.css, synopsis1.xql, synopsis2.xql, synopsis3.xql, synopsis4.xql, main.js, synopsis1.js, synopsis2.js, synopsis.json -->
 <div xmlns="http://www.w3.org/1999/xhtml" data-template="templates:surround" data-template-with="templates/page.html" data-template-at="content">
 
-    <!-- Enthält die Auswahlmenüs -->
-    <div class="row content" style="margin-left:4vw;margin-right:4vw;">
+	<!-- Enthält die Auswahlmenüs -->
+	<div class="row content" style="margin-left:4vw;margin-right:4vw;">
 
-        <!-- Enthält das linke Auswahlmenü -->
-        <div class="col-md-6">
-            <form action="?">
-                <!-- previous-next function. Changes url -->
-                <!-- json classes are necessary for synopsis1 .js -->
-                <!-- Spalte für jedes Menü -->
-                <div class="row">
+		<!-- Enthält das linke Auswahlmenü -->
+		<div class="col-md-6" id="first-column">
+			<form action="?">
+				<!-- previous-next function. Changes url -->
+				<!-- json classes are necessary for synopsis1 .js -->
+				<!-- Spalte für jedes Menü -->
+				<div class="row">
 
-                    <div class="col-md-11">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <select class="ausgabe1 chosen-select" id="ausgabe1" data-placeholder="Ausgabe wählen" name="book1" style="width:100%">
-                                    <option value=""/>
-                                    <option value="GW5041">Brandt, 'Narrenschiff' Basel
-                                        11.2.1494</option>
-                                    <option value="GW5046">Brandt, 'Narrenschiff' Basel
-                                        3.3.1495</option>
-                                    <option value="GW5047">Brandt, 'Narrenschiff' Basel
-                                        12.2.1499</option>
-                                    <option value="GW5042">Brandt, 'Narrenschiff' Nürnberger
-                                        Bearb.</option>
-                                    <option value="GW5061">Locher, 'Stultifera Navis' Basel
-                                        1.8.1497</option>
-                                </select>
-                            </div>
-                            <div class="col-md-4">
-                                <select class="kapitel1 chosen-select" id="kapitel1" data-placeholder="Kapitel wählen" name="chap1" style="width:100%">
-                                    <!--<div data-template="app:selectGw"/>-->
-                                </select>
-                            </div>
-                            <div class="col-md-4">
-                                <select class="ansicht1 chosen-select" id="ansicht1" data-placeholder="Ansicht wählen" name="vers1" style="width:100%" onchange="this.form.submit()">
-                                    <!--<div data-template="app:selectCh"/>-->
-                                </select>
-                            </div>
-                        </div>
-                    </div>
+					<div class="col-md-11">
+						<div class="row">
+							<div class="col-md-4">
+								<select class="ausgabe1 chosen-select" id="ausgabe1" data-placeholder="Ausgabe wählen" name="book1" style="width:100%">
+								</select>
+							</div>
+							<div class="col-md-4">
+								<select class="kapitel1 chosen-select" id="kapitel1" data-placeholder="Kapitel wählen" name="chap1" style="width:100%">
+								
+								</select>
+							</div>
+							<div class="col-md-4">
+								<select class="ansicht1 chosen-select" id="ansicht1" data-placeholder="Ansicht wählen" name="vers1" style="width:100%" onchange="this.form.submit()">
+							
+								</select>
+							</div>
+						</div>
+					</div>
 
-                    <div class="col-md-1">
-                        <div data-template="syn5:create-link-tall" data-template-direction="previous" data-template-side="l"/>
-                    </div>
+					<div class="col-md-1">
+						<div data-template="syn5:create-link-tall" data-template-direction="previous" data-template-side="l"/>
+					</div>
 
-                </div>
-            </form>
-        </div>
-        <!-- Enthält das zweite Auswahlmenü -->
-        <div class="col-md-6">
-            <div data-template="syn1:createForm"/>
-        </div>
-    </div>
+				</div>
+			</form>
+		</div>
+		<!-- Enthält das zweite Auswahlmenü -->
+		<div class="col-md-6">
+			<div data-template="syn1:createForm"/>
+		</div>
+	</div>
+	
+	<!--FOR ALL VERSIONS CHECK THIS OUT-->
+	<!--<ul class="nav nav-tabs" id="myTab" role="tablist">
+		<li class="nav-item">
+			<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+		</li>
+	</ul>
+	<div class="tab-content" id="myTabContent">
+		<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">bla</div>
+		<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">blubb</div>
+		<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">bumms</div>
+	</div>-->
+	
 
-    <!-- Enthält die Textinhalte -->
-    <div class="row content" style="margin-left:4vw;margin-right:4vw;">
-        <!-- Enthält linkes Fenster -->
-        <div class="col-md-6">
-            <!-- Pfeile und Text in unterschiedlichen Spalten -->
-            <div class="textbox">
-                <div class="row">
-                    <!-- Pfeil nach links -->
-                    <div class="col-md-1 col-centered">
-                        <div data-template="syn4:create-link" data-template-direction="previous" data-template-side="l"/>
-                    </div>
-                    <!-- Text -->
-                    <div class="col-md-10 col-text">
-                        <div data-template="syn2:viewFoolsShip" data-template-side="l"/>                 
-                        <div class="footnote">
-                            <div data-template="syn6:viewMarg" data-template-side="l"/>
-                        </div>
-                    </div>
-                    <!-- Pfeil nach rechts -->
-                    <div class="col-md-1 col-centered">
-                        <div data-template="syn4:create-link" data-template-direction="next" data-template-side="l"/>
-                    </div>
-                </div>
-            </div>
-        </div>
+	<!-- Enthält die Textinhalte -->
+	<div class="row content" style="margin-left:4vw;margin-right:4vw;">
+		<!-- Enthält linkes Fenster -->
+		<div class="col-md-6">
+			<!-- Pfeile und Text in unterschiedlichen Spalten -->
+			<div class="textbox">
+				<div class="row">
+					<!-- Pfeil nach links -->
+					<div class="col-md-1 col-centered">
+						<div data-template="syn4:create-link" data-template-direction="previous" data-template-side="l"/>
+					</div>
+					<!-- Text -->
+					<div class="col-md-10 col-text">
+						<div data-template="syn2:viewFoolsShip" data-template-side="l"/>
+						<div class="footnote">
+							<div data-template="syn6:viewMarg" data-template-side="l"/>
+						</div>
+					</div>
+					<!-- Pfeil nach rechts -->
+					<div class="col-md-1 col-centered">
+						<div data-template="syn4:create-link" data-template-direction="next" data-template-side="l"/>
+					</div>
+				</div>
+			</div>
+		</div>
 
-        <!-- Enthält rechtes Fenster -->
-        <div class="col-md-6">
-            <!-- Pfeile und Text in unterschiedlichen Spalten -->
-            <div class="textbox">
-                <div class="row">
-                    <div class="col-md-1 col-centered">
-                        <div data-template="syn4:create-link" data-template-direction="previous" data-template-side="r"/>
-                    </div>
-                    <!-- Text -->
-                    <div class="col-md-10 col-text">
-                        <div data-template="syn2:viewFoolsShip" data-template-side="r"/>
-                        <div class="footnote">
-                            <div data-template="syn6:viewMarg" data-template-side="r"/>
-                        </div>
-                    </div>
-                    <!-- Pfeil nach rechts -->
-                    <div class="col-md-1 col-centered">
-                        <div data-template="syn4:create-link" data-template-direction="next" data-template-side="r"/>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+		<!-- Enthält rechtes Fenster -->
+		<div class="col-md-6">
+			<!-- Pfeile und Text in unterschiedlichen Spalten -->
+			<div class="textbox">
+				<div class="row">
+					<div class="col-md-1 col-centered">
+						<div data-template="syn4:create-link" data-template-direction="previous" data-template-side="r"/>
+					</div>
+					<!-- Text -->
+					<div class="col-md-10 col-text">
+						<div data-template="syn2:viewFoolsShip" data-template-side="r"/>
+						<div class="footnote">
+							<div data-template="syn6:viewMarg" data-template-side="r"/>
+						</div>
+					</div>
+					<!-- Pfeil nach rechts -->
+					<div class="col-md-1 col-centered">
+						<div data-template="syn4:create-link" data-template-direction="next" data-template-side="r"/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-    <div data-template="syn3:viewLem"/>
+	<div data-template="syn3:viewLem"/>
 
 
 </div>

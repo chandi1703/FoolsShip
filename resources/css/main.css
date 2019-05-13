@@ -20,6 +20,10 @@ body { font: 12px ;
   background-color: #F5F5F5 !important;
  }
  /* **************************NAVIGATION************************** */
+.no-padding{
+    padding-left:0;
+    padding-right:0;
+}
 .logotext{
     font-family:anonymous;
 }

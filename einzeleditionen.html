@@ -1,31 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <div xmlns="http://www.w3.org/1999/xhtml" data-template="templates:surround" data-template-with="templates/page.html" data-template-at="content">
     <div class="content-main">
-
+        
         <div class="row menue">
             <form onchange="this.submit()">
-            <div class="col-md-6">
-                <div class=""><div data-template="sin_ed:choose_book"/></div>
-            </div>
-            <div class="seperator"/>
-            <div class="col-md-6">
-                <div data-template="sin_ed:choose_page"/>
-            </div>
-            
+                <div class="col-md-6">
+                    <div class="">
+                        <div data-template="sin_ed:choose_book"/>
+                    </div>
+                </div>
+                <div class="seperator"/>
+                <div class="col-md-6">
+                    <div data-template="sin_ed:choose_page"/>
+                </div>
+                
             </form>
         </div>
         
         <div class="row" id="syn-content">
             
             <div class="col-md-6">
-                <div  id="syn-pic"><img class="img-responsive" src="./data/syn-pic/grumpy.jpeg"/></div>
+                <div id="syn-pic">
+                    <img class="img-responsive" src="./data/syn-pic/grumpy.jpeg"/>
+                </div>
             </div>
             
-            <div class="seperator"></div>
+            <div class="seperator"/>
             
             <div class="col-md-6">
-                <div  id="syn-text"><!-- Pfeil nach links -->
+                <div id="syn-text"><!-- Pfeil nach links -->
                     <div class="col-md-1 col-centered">
-                        <a href="#"></a>
+                        <a href="#"/>
                     </div>
                     <!-- Text -->
                     <div class="col-md-10 col-text">
@@ -33,12 +38,12 @@
                     </div>
                     <!-- Pfeil nach rechts -->
                     <div class="col-md-1 col-centered">
-                        <a href="#"></a>
+                        <a href="#"/>
                     </div>
                 </div>   
             </div>
             
         </div>
-    
+        
     </div>
 </div>

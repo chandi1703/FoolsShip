@@ -1,12 +1,12 @@
 /*Handling js-functions from all files*/
-
 $(document).ready(function () {
+
     //synopsis1.js
     chosenSelect();
-    menuAusgabe1();
+    /*menuAusgabe1();
     menuAusgabe2();
     menuKapitel1();
-    menuKapitel2();
+    menuKapitel2();*/
     
     //synopsis2.js
     lemPopup1(); 
@@ -14,6 +14,6 @@ $(document).ready(function () {
     createPopover();
     
     //synopsis3.js
-    cite();
+    cite(); 
     
 });

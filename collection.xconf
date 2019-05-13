@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<collection xmlns="http://exist-db.org/collection-config/1.0">
+	<index xmlns:xs="http://www.w3.org/2001/XMLSchema">
+		<fulltext default="none" attributes="false"/>
+		<range>
+			<create qname="div" type="xs:string"/>
+			<create qname="@type" type="xs:string"/>
+			<create qname="@n" type="xs:integer"/>
+			<create qname="@xml:id" type="xs:string"/>
+			<create qname="ab" type="xs:string"/>
+			<create qname="@corresp" type="xs:string"/>
+		</range>
+	</index>
+</collection>

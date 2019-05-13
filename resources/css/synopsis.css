@@ -49,15 +49,38 @@ h2 {
     margin-top:4% !important;
     text-align:right !important;
 }
-
-/******************************LEM BOXES*************************/
+.folio{
+    font-size:small;
+    font-weight:bold;
+    margin-bottom:5% !important;
+    text-align:center;
+}
+.lage{
+	font-style:italic;
+	font-size:small;
+	margin-top:3vh;
+	font-weight:bold;
+	text-align:right;
+}
+/******************************LEM*************************/
 .modal{
     font-family:junicode;
 }
 .modal-body{
     font-size:16px !important;
 }
-.btn-default.leml, .btn-default.lemr{
+.popover-content{
+    font-family:junicode;
+}
+/*Cursor für click im Popover "...mehr"*/
+.popover-content a{
+    cursor:pointer;
+}
+/*Cursor für Beleglink im Footer*/
+.clickBeleg{
+    cursor:pointer;
+}
+.btn-info.leml,.btn-default.leml, .btn-default.lemr{
     font-size: 16px !important;
     padding: 0 1% !important;
 }
@@ -70,7 +93,38 @@ h2 {
     margin-top: 1em;
     border-top: 0.5px solid #FFFAF4;
 }
+
+/******FOOTNOTE WITH MARGINAL NOTES*******/
+.footnote{
+    margin-top:15%;
+}
+hr.margNote{
+    border-top: 3px double #8c8b8b;
+}
 /*SCROLLBAR BECAUSE UGLY FOR FIREFOX AND CHROME*/
 ::-webkit-scrollbar { 
     display: none; 
+}
+
+/*****************FAKSIMILE KRAMS*******************/
+.myPictures{
+    width:100%;
+    margin-top:1vh !important;
+}
+img[id^="zoom_01"]{
+    object-fit:contain;
+    height:65vh;
+    margin-left:5vw;
+}
+div[id^="gallery_01"]{
+    margin-top:1vh !important;
+    margin-left:5vw;
+}
+img[id^='img_']{
+    object-fit:contain;
+    height:10vh;
+    border: 1px solid #ddd;
+}
+img[id^='img_']:hover{
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
 }
