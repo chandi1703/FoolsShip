@@ -40,7 +40,7 @@ Output: second form with hidden parameters the user has chosen from first form :
                     <div
                         class="row">
                         <div
-                            class="col-md-4">
+                            class="col-md-6">
                             <select
                                 class="ausgabe2 chosen-select synMenu"
                                 id="ausgabe2"
@@ -60,7 +60,7 @@ Output: second form with hidden parameters the user has chosen from first form :
                             </select>
                         </div>
                         <div
-                            class="col-md-4">
+                            class="col-md-3">
                             <select
                                 class="kapitel2 chosen-select synMenu"
                                 id="kapitel2"
@@ -74,7 +74,7 @@ Output: second form with hidden parameters the user has chosen from first form :
                             </select>
                         </div>
                         <div
-                            class="col-md-4">
+                            class="col-md-3">
                             <select
                                 class="ansicht2 chosen-select synMenu"
                                 id="ansicht2"

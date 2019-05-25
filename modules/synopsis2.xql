@@ -105,6 +105,8 @@ declare function syn2:tei2html($nodes as node()*, $side as xs:string) {
 	(: reads parameters from synopsis.html :)
 	let $vers1 := request:get-parameter('vers1', '')
 	let $vers2 := request:get-parameter('vers2', '')
+	let $book1 := request:get-parameter('book1', '')
+	let $book2 := request:get-parameter('book2', '')
 	
 	for $node in $nodes
 	return
@@ -211,13 +213,24 @@ declare function syn2:tei2html($nodes as node()*, $side as xs:string) {
 
 case element(corr)
 	return
-		(<span
-			class="corr"><a
-				href="#{$node/ancestor::div/@xml:id}_F{$node/position()}"
-				data-toggle="collapse">{syn2:tei2html($node/node(), $side)}</a></span>,
-		<div id="{$node/ancestor::div/@xml:id}_F{$node/position()}" class="collapse" style="background:lightgrey">
-			{$node/preceding-sibling::sic}
-		</div>)
+	switch($side)
+		case "l" return
+			(<span
+				class="corr"><a
+					href="#{$node/ancestor::div/@xml:id}_F{$node/position()}"
+					data-toggle="collapse">{syn2:tei2html($node/node(), $side)}</a></span>,
+			<div id="{$node/ancestor::div/@xml:id}_F{$node/position()}" class="collapse" style="background:lightgrey;line-height:2em;">
+				<div style="text-align:center"><b>{$node, ' '}</b><i>{replace($node/@resp, '#', '')}</i> ] <b>{$node/preceding-sibling::sic, ' '}</b><i>{$book1}</i></div>
+			</div>)
+		case "r" return
+			(<span
+					class="corr"><a
+						href="#{$node/ancestor::div/@xml:id}_F{$node/position()}"
+						data-toggle="collapse">{syn2:tei2html($node/node(), $side)}</a></span>,
+				<div id="{$node/ancestor::div/@xml:id}_F{$node/position()}" class="collapse" style="background:lightgrey;line-height:2.5em;">
+					<div style="text-align:center"><b>{$node, ' '}</b><i>{replace($node/@resp, '#', '')}</i> ] <b>{$node/preceding-sibling::sic, ' '}</b><i>{$book2}</i></div>
+				</div>)
+		default return ()
 				
 case element(sic)
 	return ()
@@ -251,7 +264,7 @@ case element(figure)
 								<img
 									src="/exist/rest/img/woodcut/{lower-case(replace(base-uri($node), '.+/(.+).xml$', '$1'))}/thumbnail/{concat($node/@facs, '.jpg')}"
 									data-zoom-image="/exist/rest/img/woodcut/{lower-case(replace(base-uri($node), '.+/(.+).xml$', '$1'))}/{concat($node/@facs, '.jpg')}"
-									style="height:400px;margin-bottom:4%"
+									style="height:350px;margin-bottom:4%"
 									id="woodcut-zoom-{$side}"
 									onmouseenter="zoomWood{upper-case($side)}()"></img></div>,
 							<div
@@ -263,7 +276,7 @@ case element(figure)
 							<img
 								src="/exist/rest/img/woodcut/{lower-case(replace(base-uri($node), '.+/(.+).xml$', '$1'))}/thumbnail/{concat($node/@facs, '.jpg')}"
 								data-zoom-image="/exist/rest/img/woodcut/{lower-case(replace(base-uri($node), '.+/(.+).xml$', '$1'))}/{concat($node/@facs, '.jpg')}"
-								style="height:400px;margin-bottom:4%"
+								style="height:350px;margin-bottom:4%"
 								id="woodcut-zoom-{$side}"
 								onmouseenter="zoomWood{upper-case($side)}()"></img></div>
 				}
