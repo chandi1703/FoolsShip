@@ -9,6 +9,92 @@ import module namespace config = "http://exist-db.org/apps/narrenapp/config" at 
 import module namespace xmldb = "http://exist-db.org/xquery/xmldb";
 import module namespace functx = "http://www.functx.com";
 
+declare function syn2:createTabItem($side as xs:string, $vers as xs:string, $title as xs:string){
+	<li class="nav-item">
+		<a
+			class="nav-link"
+			id="{ concat($vers, upper-case($side)) }-tab"
+			data-toggle="tab"
+			href="#{ concat($vers, upper-case($side)) }"
+			role="tab"
+			aria-controls="{ concat($vers, upper-case($side)) }"
+			aria-selected="true">{ $title }</a>
+	</li>
+};
+
+declare function syn2:createTabContent($side as xs:string, $vers as xs:string, $book as xs:string, $chap as xs:string){
+	if ($vers eq 'reg') then
+		<div
+			class="tab-pane fade in active"
+			id="{ concat($vers, upper-case($side)) }"
+			role="tabpanel"
+			aria-labelledby="{ concat($vers, upper-case($side)) }-tab">{ syn2:getFoolsShip($side, $vers, $book, $chap) }</div>
+	else if ($vers eq 'facs') then
+		<div
+			class="tab-pane fade"
+			id="{ concat($vers, upper-case($side)) }"
+			role="tabpanel"
+			aria-labelledby="{ concat($vers, upper-case($side)) }-tab">{ syn2:getFacsimile($side, $book, $chap) }</div>
+	else
+		<div
+			class="tab-pane fade"
+			id="{ concat($vers, upper-case($side)) }"
+			role="tabpanel"
+			aria-labelledby="{ concat($vers, upper-case($side)) }-tab">{ syn2:getFoolsShip($side, $vers, $book, $chap) }</div>
+};
+
+declare function syn2:viewFoolsShip($node as node(), $model as map(*), $side as xs:string) {
+	(: takes necessary content from data/GW and passes it to syn2:tei2html :)
+	(: Input: data/GW, user's choice from menu, $side (left or right of synopsis)
+Output: chapter which was chosen by the user :)
+	
+	(: takes parameters from html-form :)
+(:	let $vers1 := request:get-parameter('vers1', '') :)
+	let $book1 := request:get-parameter('book1', '')
+	let $chap1 := request:get-parameter('chap1', '')
+	(:let $vers2 := request:get-parameter('vers2', ''):)
+	let $book2 := request:get-parameter('book2', '')
+	let $chap2 := request:get-parameter('chap2', '')
+	
+	let $facs := 'facs',
+		$reg := 'reg',
+		$orig := 'orig'
+	
+	return	
+	if ($side eq 'l') then
+		(<ul
+		class="nav nav-tabs"
+		id="myTabL"
+		role="tablist">
+		{ syn2:createTabItem($side, $reg, 'Normalisierte Lesefassung'),
+		syn2:createTabItem($side, $orig, 'Transkription'),
+		syn2:createTabItem($side, $facs, 'Faksimile') }
+		</ul>,
+		<div
+			class="tab-content"
+			id="myTabContent">
+			{ syn2:createTabContent($side, $reg, $book1, $chap1),
+			syn2:createTabContent($side, $orig, $book1, $chap1),
+			syn2:createTabContent($side, $facs, $book1, $chap1) }
+		</div>)
+	else 
+		(<ul
+		class="nav nav-tabs"
+		id="myTabL"
+		role="tablist">
+		{ syn2:createTabItem($side, $reg, 'Normalisierte Lesefassung'),
+		syn2:createTabItem($side, $orig, 'Transkription'),
+		syn2:createTabItem($side, $facs, 'Faksimile') }
+		</ul>,
+		<div
+			class="tab-content"
+			id="myTabContent">
+			{ syn2:createTabContent($side, $reg, $book2, $chap2),
+			syn2:createTabContent($side, $orig, $book2, $chap2),
+			syn2:createTabContent($side, $facs, $book2, $chap2) }
+		</div>)
+};
+
 declare function syn2:getFoolsShip($side as xs:string, $vers as xs:string, $book as xs:string, $chap as xs:string) {
 	(: gets chapters from fool's ship according to user's choice and passes it to syn2:viewFoolsShip() :)
 	(: Input: $side (synopsis side), $vers (version), $book (GW), $chap (chapter)
@@ -22,10 +108,10 @@ Output: user's chosen chapter :)
 	return
 		<div
 			id="{concat($book, $id, $vers)}"
-			class="chapterL">{syn2:tei2html($chapter, $side)}</div>
+			class="chapterL">{ syn2:tei2html($chapter, $side, $vers) }</div>
 };
 
-declare function syn2:getFacsimile($vers as xs:string, $book as xs:string, $chap as xs:string, $side as xs:string) {
+declare function syn2:getFacsimile($side as xs:string, $book as xs:string, $chap as xs:string) {
 	let $document := doc(concat('/db/apps/narrenapp/data/GW/', string($book), '.xml'))
 	return
 		
@@ -64,41 +150,9 @@ declare function syn2:getFacsimile($vers as xs:string, $book as xs:string, $chap
 			</div>
 };
 
-declare function syn2:viewFoolsShip($node as node(), $model as map(*), $side as xs:string) {
-	(: takes necessary content from data/GW and passes it to syn2:tei2html :)
-	(: Input: data/GW, user's choice from menu, $side (left or right of synopsis)
-Output: chapter which was chosen by the user :)
-	
-	(: takes parameters from html-form :)
-	let $vers1 := request:get-parameter('vers1', '')
-	let $book1 := request:get-parameter('book1', '')
-	let $chap1 := request:get-parameter('chap1', '')
-	let $vers2 := request:get-parameter('vers2', '')
-	let $book2 := request:get-parameter('book2', '')
-	let $chap2 := request:get-parameter('chap2', '')
-	return
-		switch ($side)
-			case "l"
-				return
-					
-					(: THIS IS NEW RIGHT NOW. TODO. DEVELOP THIS SHIT. :)
-					if ($vers1 eq 'facs') then
-						syn2:getFacsimile($vers1, $book1, $chap1, $side)
-					else
-						syn2:getFoolsShip($side, $vers1, $book1, $chap1)
-			
-			case "r"
-				return
-					
-					if ($vers2 eq 'facs') then
-						syn2:getFacsimile($vers2, $book2, $chap2, $side)
-					else
-						syn2:getFoolsShip($side, $vers2, $book2, $chap2)
-			default return
-				"Something went wrong."
-};
 
-declare function syn2:tei2html($nodes as node()*, $side as xs:string) {
+
+declare function syn2:tei2html($nodes as node()*, $side as xs:string, $vers as xs:string) {
 	(: transforms elements from syn2:viewFoolsShip() :)
 	
 	let $lem := collection('/db/apps/narrenapp/data/lemma/?select=*.xml')
@@ -122,30 +176,30 @@ declare function syn2:tei2html($nodes as node()*, $side as xs:string) {
 					if ($node/@type = "chapterTitle") then
 						<div
 							class="chapterTitle"
-							style="font-weight:bold;font-size:1.5em;margin-bottom:3%">{syn2:tei2html($node/node(), $side)}</div>
+							style="font-weight:bold;font-size:1.5em;margin-bottom:3%">{syn2:tei2html($node/node(), $side, $vers)}</div>
 					
 					else
 						if ($node/@type = "mainText") then
 							<div
-								class="mainText">{syn2:tei2html($node/node(), $side)}</div>
+								class="mainText">{syn2:tei2html($node/node(), $side, $vers)}</div>
 						
 						else
 							if ($node/@type = "motto") then
 								<div
 									class="motto"
-									style="font-size:small;margin-bottom:4%">{syn2:tei2html($node/node(), $side)}</div>
+									style="font-size:small;margin-bottom:4%">{syn2:tei2html($node/node(), $side, $vers)}</div>
 							
 							else
 								if ($node/@type = "signatureTitle") then
 									(: (<div class="signatureMark">{ syn2:tei2html($node/node(),$side) }</div>,
                     <hr class="pageturn"/>):)
 									<div
-										class="signatureMark">{syn2:tei2html($node/node(), $side)}</div>
+										class="signatureMark">{syn2:tei2html($node/node(), $side,$vers)}</div>
 								
 								else
 									if ($node/@type = "folio") then
 										<div
-											class="folio">{syn2:tei2html($node/node(), $side)}</div>
+											class="folio">{syn2:tei2html($node/node(), $side, $vers)}</div>
 										
 										(: Marginalien werden an anderer Stelle aufgerufen und verarbeitet, daher auslassen :)
 									else
@@ -156,60 +210,33 @@ declare function syn2:tei2html($nodes as node()*, $side as xs:string) {
 												()
 											
 											else
-												syn2:tei2html($node/node(), $side)
+												syn2:tei2html($node/node(), $side, $vers)
 			
 			case element(choice)
 				return
 					if ($node/reg | $node/orig) then
-						(: normalized and OCR-version of texts :)
-						switch ($side)
-							case "l"
+						switch ($vers)
+							case "reg"
 								return
-									switch ($vers1)
-										case "reg"
+									<div
+										class='nrm'>{
+											for $child in $node//reg
 											return
-												<div
-													class='nrm'>{
-														for $child in $node//reg
-														return
-															syn2:tei2html($child, $side)
-													}</div>
-										case "orig"
+												syn2:tei2html($child, $side, $vers)
+										}</div>
+							case "orig"
+								return
+									<div
+										class='ocr'>{
+											for $child in $node//orig
 											return
-												<div
-													class='ocr'>{
-														for $child in $node//orig
-														return
-															syn2:tei2html($child, $side)
-													}</div>
-										default return
-											()
-						case "r"
-							return
-								switch ($vers2)
-									case "reg"
-										return
-											<div
-												class='nrm'>{
-													for $child in $node//reg
-													return
-														syn2:tei2html($child, $side)
-												}</div>
-									case "orig"
-										return
-											<div
-												class='ocr'>{
-													for $child in $node//orig
-													return
-														syn2:tei2html($child, $side)
-												}</div>
-									default return
-										()
-					default return
-						"WTF"
-		
-		else
-			syn2:tei2html($node/node(), $side)
+												syn2:tei2html($child, $side, $vers)
+										}</div>
+							default return
+								()
+					
+				else
+					syn2:tei2html($node/node(), $side, $vers)
 
 case element(corr)
 	return
@@ -218,7 +245,7 @@ case element(corr)
 			(<span
 				class="corr"><a
 					href="#{$node/ancestor::div/@xml:id}_F{$node/position()}"
-					data-toggle="collapse">{syn2:tei2html($node/node(), $side)}</a></span>,
+					data-toggle="collapse">{syn2:tei2html($node/node(), $side, $vers)}</a></span>,
 			<div id="{$node/ancestor::div/@xml:id}_F{$node/position()}" class="collapse" style="background:lightgrey;line-height:2em;">
 				<div style="text-align:center"><b>{$node, ' '}</b><i>{replace($node/@resp, '#', '')}</i> ] <b>{$node/preceding-sibling::sic, ' '}</b><i>{$book1}</i></div>
 			</div>)
@@ -226,7 +253,7 @@ case element(corr)
 			(<span
 					class="corr"><a
 						href="#{$node/ancestor::div/@xml:id}_F{$node/position()}"
-						data-toggle="collapse">{syn2:tei2html($node/node(), $side)}</a></span>,
+						data-toggle="collapse">{syn2:tei2html($node/node(), $side, $vers)}</a></span>,
 				<div id="{$node/ancestor::div/@xml:id}_F{$node/position()}" class="collapse" style="background:lightgrey;line-height:2.5em;">
 					<div style="text-align:center"><b>{$node, ' '}</b><i>{replace($node/@resp, '#', '')}</i> ] <b>{$node/preceding-sibling::sic, ' '}</b><i>{$book2}</i></div>
 				</div>)
@@ -240,12 +267,12 @@ case element(pb)
 		if ($node/preceding-sibling::ab != '') then
 			
 			(<div
-				class="lage">{upper-case(replace($node/@facs, '.*_([a-z][1-9][a-z])', '$1'))}</div>,
+				class="lage">{replace($node/@facs, '.*_([a-z][1-9][a-z])', '$1')}</div>,
 			<hr
 				class="pageturn"/>)
 		else
 			<div
-				class="lage">{upper-case(replace($node/@facs, '.*_([a-z][1-9][a-z])', '$1'))}</div>
+				class="lage">{replace($node/@facs, '.*_([a-z][1-9][a-z])', '$1')}</div>
 			
 			(: pictures are not in narrenapp itself but inside of a directory on database level :)
 case element(figure)
@@ -265,11 +292,11 @@ case element(figure)
 									src="/exist/rest/img/woodcut/{lower-case(replace(base-uri($node), '.+/(.+).xml$', '$1'))}/thumbnail/{concat($node/@facs, '.jpg')}"
 									data-zoom-image="/exist/rest/img/woodcut/{lower-case(replace(base-uri($node), '.+/(.+).xml$', '$1'))}/{concat($node/@facs, '.jpg')}"
 									style="height:350px;margin-bottom:4%"
-									id="woodcut-zoom-{$side}"
-									onmouseenter="zoomWood{upper-case($side)}()"></img></div>,
+									id="woodcut-zoom-{ concat($side, $vers) }"
+									onmouseenter="zoomWood{ concat(upper-case($side), $vers) }()"></img></div>,
 							<div
 								class="col-sm-5"
-								style="font-size:small">{syn2:tei2html($woodcutTitle, $side)}</div>)
+								style="font-size:small">{syn2:tei2html($woodcutTitle, $side, $vers)}</div>)
 					else
 						<div
 							class="col-sm-8 col-sm-push-2 myWoodcut{upper-case($side)}">
@@ -277,8 +304,8 @@ case element(figure)
 								src="/exist/rest/img/woodcut/{lower-case(replace(base-uri($node), '.+/(.+).xml$', '$1'))}/thumbnail/{concat($node/@facs, '.jpg')}"
 								data-zoom-image="/exist/rest/img/woodcut/{lower-case(replace(base-uri($node), '.+/(.+).xml$', '$1'))}/{concat($node/@facs, '.jpg')}"
 								style="height:350px;margin-bottom:4%"
-								id="woodcut-zoom-{$side}"
-								onmouseenter="zoomWood{upper-case($side)}()"></img></div>
+								id="woodcut-zoom-{ concat($side, $vers) }"
+								onmouseenter="zoomWood{ concat(upper-case($side), $vers) }()"></img></div>
 				}
 			</div>
 
@@ -294,7 +321,7 @@ case element(l)
 						class="col-sm-2">{string($node/@n)}</div>,
 					<div
 						id="text"
-						class="col-sm-10">{syn2:tei2html($node/node(), $side)}</div>)
+						class="col-sm-10">{syn2:tei2html($node/node(), $side, $vers)}</div>)
 				
 				else
 					if ($node/ancestor::ab[1]/following-sibling::ab[1][@type = 'marginalie']) then
@@ -307,7 +334,7 @@ case element(l)
 										style="font-size:10px"/></sup></a></div>,
 						<div
 							id="text"
-							class="col-sm-10">{syn2:tei2html($node/node(), $side)}</div>)
+							class="col-sm-10">{syn2:tei2html($node/node(), $side, $vers)}</div>)
 					
 					else
 						(<div
@@ -315,7 +342,7 @@ case element(l)
 							class="col-sm-2">{string($node/@n)}</div>,
 						<div
 							id="text"
-							class="col-sm-10">{syn2:tei2html($node/node(), $side)}</div>)
+							class="col-sm-10">{syn2:tei2html($node/node(), $side, $vers)}</div>)
 			}
 		
 		</div>
@@ -344,7 +371,7 @@ case element(ref)
 
 case element()
 	return
-		syn2:tei2html($node/node(), $side)
+		syn2:tei2html($node/node(), $side, $vers)
 
 default
 	return

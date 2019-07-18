@@ -15,9 +15,7 @@ declare function syn5:create-link-tall($node as node(), $model as map(*), $direc
 (: Input: direction (turning page to the left or the right, next-previous), side ( left:l or right:r window) 
 Output: clickable links. Calls function syn4:create-button() to create fontawesome buttons :)
     
-    let $vers1 := request:get-parameter('vers1', ''),
-        $vers2 := request:get-parameter('vers2', ''),
-        $book1 := request:get-parameter('book1', ''),
+    let $book1 := request:get-parameter('book1', ''),
         $book2 := request:get-parameter('book2', ''),
         $chap1 := request:get-parameter('chap1', ''),
         $chap2 := request:get-parameter('chap2', ''),
@@ -38,12 +36,12 @@ Output: clickable links. Calls function syn4:create-button() to create fontaweso
                             return
                                 if ($book2 eq "") then
                                     <a
-                                        href="{$uri}?book1={$book1}&amp;chap1={concat(replace($chap1, '(GW[0-9]+n)[0-9]+$', '$1'), string($chap-number1 - 1))}&amp;vers1={$vers1}">
+                                        href="{$uri}?book1={$book1}&amp;chap1={concat(replace($chap1, '(GW[0-9]+n)[0-9]+$', '$1'), string($chap-number1 - 1))}">
                                         {syn4:create-button($node, $model, $direction)}
                                     </a>
                                 else
                                     <a
-                                        href="{$uri}?book1={$book1}&amp;chap1={concat(replace($chap1, '(GW[0-9]+n)[0-9]+$', '$1'), string($chap-number1 - 1))}&amp;vers1={$vers1}&amp;book2={$book2}&amp;chap2={concat(replace($chap2, '(GW[0-9]+n)[0-9]+$', '$1'), string($chap-number2 - 1))}&amp;vers2={$vers2}">
+                                        href="{$uri}?book1={$book1}&amp;chap1={concat(replace($chap1, '(GW[0-9]+n)[0-9]+$', '$1'), string($chap-number1 - 1))}&amp;book2={$book2}&amp;chap2={concat(replace($chap2, '(GW[0-9]+n)[0-9]+$', '$1'), string($chap-number2 - 1))}">
                                         {syn4:create-button($node, $model, $direction)}
                                     </a>
                                     (: link changes according to direction. Counting up for "next" :)
@@ -51,12 +49,12 @@ Output: clickable links. Calls function syn4:create-button() to create fontaweso
                             return
                                 if ($book2 eq "") then
                                     <a
-                                        href="{$uri}?book1={$book1}&amp;chap1={concat(replace($chap1, '(GW[0-9]+n)[0-9]+$', '$1'), string($chap-number1 + 1))}&amp;vers1={$vers1}">
+                                        href="{$uri}?book1={$book1}&amp;chap1={concat(replace($chap1, '(GW[0-9]+n)[0-9]+$', '$1'), string($chap-number1 + 1))}">
                                         {syn4:create-button($node, $model, $direction)}
                                     </a>
                                 else
                                     <a
-                                        href="{$uri}?book1={$book1}&amp;chap1={concat(replace($chap1, '(GW[0-9]+n)[0-9]+$', '$1'), string($chap-number1 + 1))}&amp;vers1={$vers1}&amp;book2={$book2}&amp;chap2={concat(replace($chap2, '(GW[0-9]+n)[0-9]+$', '$1'), string($chap-number2 + 1))}&amp;vers2={$vers2}">
+                                        href="{$uri}?book1={$book1}&amp;chap1={concat(replace($chap1, '(GW[0-9]+n)[0-9]+$', '$1'), string($chap-number1 + 1))}&amp;book2={$book2}&amp;chap2={concat(replace($chap2, '(GW[0-9]+n)[0-9]+$', '$1'), string($chap-number2 + 1))}">
                                         {syn4:create-button($node, $model, $direction)}
                                     </a>
                         default return
@@ -70,12 +68,12 @@ Output: clickable links. Calls function syn4:create-button() to create fontaweso
                         return
                             if ($book1 eq "") then
                                 <a
-                                    href="{$uri}?book2={$book2}&amp;chap2={concat(replace($chap2, '(GW[0-9]+n)[0-9]+$', '$1'), string($chap-number2 - 1))}&amp;vers2={$vers2}">
+                                    href="{$uri}?book2={$book2}&amp;chap2={concat(replace($chap2, '(GW[0-9]+n)[0-9]+$', '$1'), string($chap-number2 - 1))}">
                                     {syn4:create-button($node, $model, $direction)}
                                 </a>
                             else
                                 <a
-                                    href="{$uri}?book1={$book1}&amp;chap1={concat(replace($chap1, '(GW[0-9]+n)[0-9]+$', '$1'), string($chap-number1 - 1))}&amp;vers1={$vers1}&amp;book2={$book2}&amp;chap2={concat(replace($chap2, '(GW[0-9]+n)[0-9]+$', '$1'), string($chap-number2 - 1))}&amp;vers2={$vers2}">
+                                    href="{$uri}?book1={$book1}&amp;chap1={concat(replace($chap1, '(GW[0-9]+n)[0-9]+$', '$1'), string($chap-number1 - 1))}&amp;book2={$book2}&amp;chap2={concat(replace($chap2, '(GW[0-9]+n)[0-9]+$', '$1'), string($chap-number2 - 1))}&amp;">
                                     {syn4:create-button($node, $model, $direction)}
                                 </a>
                                 (: link changes according to direction. Counting up for "next" :)
@@ -83,12 +81,12 @@ Output: clickable links. Calls function syn4:create-button() to create fontaweso
                         return
                             if ($book1 eq "") then
                                 <a
-                                    href="{$uri}?book2={$book2}&amp;chap2={concat(replace($chap2, '(GW[0-9]+n)[0-9]+$', '$1'), string($chap-number2 + 1))}&amp;vers2={$vers2}">
+                                    href="{$uri}?book2={$book2}&amp;chap2={concat(replace($chap2, '(GW[0-9]+n)[0-9]+$', '$1'), string($chap-number2 + 1))}&amp;">
                                     {syn4:create-button($node, $model, $direction)}
                                 </a>
                             else
                                 <a
-                                    href="{$uri}?book1={$book1}&amp;chap1={concat(replace($chap1, '(GW[0-9]+n)[0-9]+$', '$1'), string($chap-number1 + 1))}&amp;vers1={$vers1}&amp;book2={$book2}&amp;chap2={concat(replace($chap2, '(GW[0-9]+n)[0-9]+$', '$1'), string($chap-number2 + 1))}&amp;vers2={$vers2}">
+                                    href="{$uri}?book1={$book1}&amp;chap1={concat(replace($chap1, '(GW[0-9]+n)[0-9]+$', '$1'), string($chap-number1 + 1))}&amp;book2={$book2}&amp;chap2={concat(replace($chap2, '(GW[0-9]+n)[0-9]+$', '$1'), string($chap-number2 + 1))}">
                                     {syn4:create-button($node, $model, $direction)}
                                 </a>
                     default return

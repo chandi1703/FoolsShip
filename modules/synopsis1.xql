@@ -18,7 +18,7 @@ Input: html-form from synopsis-page
 Output: second form with hidden parameters the user has chosen from first form :)
     
     (: takes chosen parameters for version, book and chapter from form1 :)
-    let $vers := request:get-parameter('vers1', ''),
+    let (:$vers := request:get-parameter('vers1', ''),:)
          $book := request:get-parameter('book1', ''),
          $chap := request:get-parameter('chap1', '')
     return
@@ -31,7 +31,7 @@ Output: second form with hidden parameters the user has chosen from first form :
                 <!-- imports function for turning pages in both chosen narrenschiff simultaneously -->
                 <div
                     class="col-md-1">
-                    {syn5:create-link-tall($node, $model, "next", "r")}
+                    { syn5:create-link-tall($node, $model, "next", "r") }
                 </div>
                 <!-- ausgabe2 class is necessary for synopsis1.js-file -->
                 <!-- chosen-select is class for chosen jquery plugin -->
@@ -40,19 +40,13 @@ Output: second form with hidden parameters the user has chosen from first form :
                     <div
                         class="row">
                         <div
-                            class="col-md-6">
+                            class="col-md-7">
                             <select
                                 class="ausgabe2 chosen-select synMenu"
                                 id="ausgabe2"
                                 data-placeholder="Ausgabe wählen"
                                 name="book2"
                                 style="width:100%">
-                                <!--<option value=""/>
-                                    <option value="GW5041">Brandt, 'Narrenschiff' Basel 11.2.1494</option>
-                                    <option value="GW5046">Brandt, 'Narrenschiff' Basel 3.3.1495</option>
-                                    <option value="GW5047">Brandt, 'Narrenschiff' Basel 12.2.1499</option>
-                                    <option value="GW5042">Brandt, 'Narrenschiff' Nürnberger Bearb.</option>
-                                    <option value="GW5061">Locher, 'Stultifera Navis' Basel 1.8.1497</option>-->
                                 <input
                                     type="hidden"
                                     name="book1"
@@ -60,32 +54,18 @@ Output: second form with hidden parameters the user has chosen from first form :
                             </select>
                         </div>
                         <div
-                            class="col-md-3">
+                            class="col-md-5">
                             <select
                                 class="kapitel2 chosen-select synMenu"
                                 id="kapitel2"
                                 data-placeholder="Kapitel wählen"
                                 name="chap2"
+                                onchange="this.form.submit()"
                                 style="width:100%">
                                 <input
                                     type="hidden"
                                     name="chap1"
                                     value="{$chap}"/>
-                            </select>
-                        </div>
-                        <div
-                            class="col-md-3">
-                            <select
-                                class="ansicht2 chosen-select synMenu"
-                                id="ansicht2"
-                                data-placeholder="Ansicht wählen"
-                                name="vers2"
-                                onchange="this.form.submit()"
-                                style="width:100%">
-                                <input
-                                    type="hidden"
-                                    name="vers1"
-                                    value="{$vers}"/>
                             </select>
                         </div>
                     </div>

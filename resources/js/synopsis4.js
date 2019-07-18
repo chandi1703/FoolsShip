@@ -46,28 +46,56 @@ function zoomFacsR() {
 	});
 };
 
-function zoomWoodL() {
+function zoomWoodLreg() {
 /*Is called when mouse enters image. Zoom for woodcuts.*/
-	$("#woodcut-zoom-l").ezPlus({
+	$("#woodcut-zoom-lreg").ezPlus({
 		cursor: 'pointer',
 		loadingIcon: "img/loader.gif",
 		zoomType: 'lens',
 		lensShape: 'round', //can be 'round'
 		lensSize: 350,
-		scrollZoom: true,
-		zoomContainerAppendTo: 'div.myWoodcutL'
+		scrollZoom: true
+		/*zoomContainerAppendTo: 'div.myWoodcutL'*/
+		
 	});
 };
 
-function zoomWoodR() {
+function zoomWoodLorig() {
 /*Is called when mouse enters image. Zoom for woodcuts.*/
-	$("#woodcut-zoom-r").ezPlus({
+	$("#woodcut-zoom-lorig").ezPlus({
 		cursor: 'pointer',
 		loadingIcon: "img/loader.gif",
 		zoomType: 'lens',
 		lensShape: 'round', //can be 'round'
 		lensSize: 350,
-		scrollZoom: true,
-		zoomContainerAppendTo: 'div.myWoodcutR'
+		scrollZoom: true
+		/*zoomContainerAppendTo: 'div.myWoodcutL'*/
+		
+	});
+};
+
+function zoomWoodRreg() {
+/*Is called when mouse enters image. Zoom for woodcuts.*/
+	$("#woodcut-zoom-rreg").ezPlus({
+		cursor: 'pointer',
+		loadingIcon: "img/loader.gif",
+		zoomType: 'lens',
+		lensShape: 'round', //can be 'round'
+		lensSize: 350,
+		scrollZoom: true
+		/*zoomContainerAppendTo: 'div.myWoodcutR'*/
+	});
+};
+
+function zoomWoodRorig() {
+/*Is called when mouse enters image. Zoom for woodcuts.*/
+	$("#woodcut-zoom-rorig").ezPlus({
+		cursor: 'pointer',
+		loadingIcon: "img/loader.gif",
+		zoomType: 'lens',
+		lensShape: 'round', //can be 'round'
+		lensSize: 350,
+		scrollZoom: true
+		/*zoomContainerAppendTo: 'div.myWoodcutR'*/
 	});
 };

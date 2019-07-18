@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- This page shows a two-window synopsis, where the user can choose between different fool's ships --><!-- Connected to: main.css, synopsis.css, synopsis1.xql, synopsis2.xql, synopsis3.xql, synopsis4.xql, main.js, synopsis1.js, synopsis2.js, synopsis.json -->
 <div xmlns="http://www.w3.org/1999/xhtml" data-template="templates:surround" data-template-with="templates/page.html" data-template-at="content">
-
+	
 	<!-- Enthält die Auswahlmenüs -->
 	<div class="row content" style="margin-left:4vw;margin-right:4vw;">
-
+		
 		<!-- Enthält das linke Auswahlmenü -->
 		<div class="col-md-6" id="first-column">
 			<form action="?">
@@ -12,30 +12,30 @@
 				<!-- json classes are necessary for synopsis1 .js -->
 				<!-- Spalte für jedes Menü -->
 				<div class="row">
-
+					
 					<div class="col-md-11">
 						<div class="row">
-							<div class="col-md-6">
+							<div class="col-md-7">
 								<select class="ausgabe1 chosen-select" id="ausgabe1" data-placeholder="Ausgabe wählen" name="book1" style="width:100%">
 								</select>
 							</div>
-							<div class="col-md-3">
-								<select class="kapitel1 chosen-select" id="kapitel1" data-placeholder="Kapitel wählen" name="chap1" style="width:100%">
-								
+							<div class="col-md-5">
+								<select class="kapitel1 chosen-select" id="kapitel1" data-placeholder="Kapitel wählen" name="chap1" style="width:100%" onchange="this.form.submit()">
+									
 								</select>
 							</div>
-							<div class="col-md-3">
+<!--							<div class="col-md-3">
 								<select class="ansicht1 chosen-select" id="ansicht1" data-placeholder="Ansicht wählen" name="vers1" style="width:100%" onchange="this.form.submit()">
-							
+									
 								</select>
-							</div>
+							</div>-->
 						</div>
 					</div>
-
+					
 					<div class="col-md-1">
 						<div data-template="syn5:create-link-tall" data-template-direction="previous" data-template-side="l"/>
 					</div>
-
+					
 				</div>
 			</form>
 		</div>
@@ -45,25 +45,6 @@
 		</div>
 	</div>
 	
-	<!--FOR ALL VERSIONS CHECK THIS OUT-->
-	<!--<ul class="nav nav-tabs" id="myTab" role="tablist">
-		<li class="nav-item">
-			<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
-		</li>
-	</ul>
-	<div class="tab-content" id="myTabContent">
-		<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">bla</div>
-		<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">blubb</div>
-		<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">bumms</div>
-	</div>-->
-	
-
 	<!-- Enthält die Textinhalte -->
 	<div class="row content" style="margin-left:4vw;margin-right:4vw;">
 		<!-- Enthält linkes Fenster -->
@@ -89,7 +70,7 @@
 				</div>
 			</div>
 		</div>
-
+		
 		<!-- Enthält rechtes Fenster -->
 		<div class="col-md-6">
 			<!-- Pfeile und Text in unterschiedlichen Spalten -->
@@ -113,8 +94,7 @@
 			</div>
 		</div>
 	</div>
-
+	
 	<div data-template="syn3:viewLem"/>
-
-
+	
 </div>

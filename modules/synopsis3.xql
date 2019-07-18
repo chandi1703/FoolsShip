@@ -7,7 +7,7 @@ declare default element namespace "http://www.tei-c.org/ns/1.0";
 import module namespace templates = "http://exist-db.org/xquery/templates";
 import module namespace config = "http://exist-db.org/apps/narrenapp/config" at "config.xqm";
 
-declare function syn3:getLem($vers as xs:string, $book as xs:string, $chap as xs:string) {
+declare function syn3:getLem($book as xs:string, $chap as xs:string) {
 	
 	let $document := doc(concat('/db/apps/narrenapp/data/GW/', string($book), '.xml'))
 	let $lem := collection('/db/apps/narrenapp/data/lemma/?select=*.xml')
@@ -66,15 +66,13 @@ declare function syn3:viewLem($node as node(), $model as map(*)) {
 	(: Input: $node, $side (distinguishes between left and right synopsis-window)
 Output: all lems in current chapter -> persons, places, items :)
 	
-	let $vers1 := request:get-parameter('vers1', '')
 	let $book1 := request:get-parameter('book1', '')
 	let $chap1 := request:get-parameter('chap1', '')
-	let $vers2 := request:get-parameter('vers2', '')
 	let $book2 := request:get-parameter('book2', '')
 	let $chap2 := request:get-parameter('chap2', '')
 	return
-		(syn3:getLem($vers1, $book1, $chap1),
-		syn3:getLem($vers2, $book2, $chap2))
+		(syn3:getLem($book1, $chap1),
+		syn3:getLem($book2, $chap2))
 };
 
 declare function syn3:lem2html($nodes as node()*) {

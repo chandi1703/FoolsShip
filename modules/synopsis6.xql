@@ -17,26 +17,24 @@ declare function syn6:viewMarg($node as node(), $model as map(*), $side as xs:st
 	(: gets all chosen values from user and calls function getMarg :)
 	(: Input: $side (distinguishes between left and right synopsis-window)
 Output: no direct output. Redirects to getMarg function :)
-	
-	let $vers1 := request:get-parameter('vers1', '')
+
 	let $book1 := request:get-parameter('book1', '')
 	let $chap1 := request:get-parameter('chap1', '')
-	let $vers2 := request:get-parameter('vers2', '')
 	let $book2 := request:get-parameter('book2', '')
 	let $chap2 := request:get-parameter('chap2', '')
 	return
 		switch ($side)
 			case "l"
 				return
-					syn6:getMarg($vers1, $book1, $chap1, $side)
+					syn6:getMarg($book1, $chap1, $side)
 			case "r"
 				return
-					syn6:getMarg($vers2, $book2, $chap2, $side)
+					syn6:getMarg($book2, $chap2, $side)
 			default return
 				"It didn't work out"
 };
 
-declare function syn6:getMarg($vers as xs:string, $book as xs:string, $chap as xs:string, $side as xs:string) {
+declare function syn6:getMarg($book as xs:string, $chap as xs:string, $side as xs:string) {
 	(: gets all elements ab[@type='marginalie'] from the current chapter :)
 	(: Input: values chosen from user 
 Output: left side --> marginalia
